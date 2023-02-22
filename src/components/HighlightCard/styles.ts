@@ -1,0 +1,68 @@
+import styled from "styled-components";
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  width: 100%;
+  border-radius: 1.2rem;
+  background: rgba(66, 70, 66, 0.7);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-bottom: 1rem;
+`;
+
+export const RifaImage = styled.div`
+  width: 100%;
+  height: 20rem;
+  background-image: url("dinheiro.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 1.2rem;
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem 1rem;
+`;
+
+export const Name = styled.p`
+  font-family: "Poppins", sans-serif;
+  color: #f3f4ed;
+  font-size: 1.2rem;
+`;
+
+export const Description = styled.p`
+  font-size: 1.2rem;
+`;
+
+export const Info = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const Status = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 7rem;
+  color: #f8f8f8;
+  font-size: 0.8rem;
+  font-family: "Poppins", sans-serif;
+  background: #c06014;
+  padding: 0.2rem 0.8rem;
+  border-radius: 0.8rem;
+`;
+
+export const Price = styled.p`
+  color: #f3f4ed;
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+`;
+
+export const Button = styled.button``;
