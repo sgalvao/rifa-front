@@ -3,22 +3,25 @@ import { HighlightCard } from "@/components/HighlightCard";
 import * as S from "./styles";
 import { ImFire } from "react-icons/im";
 import { GiveAwayCard } from "@/components/GiveawayCard";
+import { Base } from "@/templates/Base";
+import { LoadRifas } from "@/types/api";
 
-const Homepage = () => {
+const Homepage = ({ loadRifas }: LoadRifas) => {
+  const rifaList = loadRifas.slice(0);
+
   return (
-    <S.Container>
-      <Header />
+    <Base>
       <S.Divider />
       <S.Content>
         <S.Title>
           <ImFire /> Destaque <ImFire />
         </S.Title>
-        <HighlightCard />
-        <GiveAwayCard />
-        <GiveAwayCard />
-        <GiveAwayCard />
+        <HighlightCard {...loadRifas[0]} />
+        {rifaList.map((item) => (
+          <GiveAwayCard {...item} key={item.id} />
+        ))}
       </S.Content>
-    </S.Container>
+    </Base>
   );
 };
 

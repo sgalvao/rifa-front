@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+type Props = {
+  isOpen?: boolean;
+};
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -45,17 +49,24 @@ export const Info = styled.div`
   justify-content: space-between;
 `;
 
-export const Status = styled.div`
+export const Status = styled.div<Props>`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 7rem;
-  color: #f8f8f8;
-  font-size: 0.8rem;
+  width: max-content;
+  color: #fff;
+  font-size: 1.1rem;
   font-family: "Poppins", sans-serif;
   background: #c06014;
-  padding: 0.2rem 0.8rem;
+  padding: 0.4rem 1rem;
   border-radius: 0.8rem;
+  animation: 1.8s showIn linear infinite;
+
+  @keyframes showIn {
+    50% {
+      opacity: 0;
+    }
+  }
 `;
 
 export const Price = styled.p`
