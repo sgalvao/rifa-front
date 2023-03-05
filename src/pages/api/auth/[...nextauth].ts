@@ -8,8 +8,7 @@ import { createApolloClient } from "@/utils/apollo";
 import { UserProps } from "@/types/api";
 
 type AuthorizeProps = {
-  email: string;
-  password: string;
+  phone: string;
 };
 
 const apolloClient = createApolloClient();
@@ -17,20 +16,19 @@ const apolloClient = createApolloClient();
 const options = {
   pages: {
     signIn: "/login",
-    signOut: "/login",
+    signOut: "/",
   },
   providers: [
     CredentialsProvider({
       name: "Sign-in",
       credentials: {},
       // @ts-ignore
-      async authorize({ email, password }: AuthorizeProps) {
+      async authorize({ phone }: AuthorizeProps) {
         const { data } = await apolloClient.query({
           query: LOGIN_QUERY,
           fetchPolicy: "no-cache",
           variables: {
-            email,
-            password,
+            phone,
           },
         });
 
@@ -48,7 +46,7 @@ const options = {
     }),
   ],
   callbacks: {
-    session: async ({ session, token }) => {
+    session: async ({ session, token }: any) => {
       session.accessToken = token.accessToken;
 
       if (token.user) session.user = token.user as UserProps;
@@ -56,7 +54,7 @@ const options = {
       return session;
     },
 
-    jwt: async ({ token, user }) => {
+    jwt: async ({ token, user }: any) => {
       if (user) {
         token.user = user;
         token.accessToken = user.jwt;

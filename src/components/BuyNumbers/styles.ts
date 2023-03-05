@@ -22,5 +22,6 @@ export const Price = styled.div`
   padding: 1rem;
   border-radius: 1rem;
   color: #f8f8f8;
+  cursor: pointer;
   font-weight: 800;
 `;

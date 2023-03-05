@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { AddMoreButton } from "../AddMoreButton";
 import { IncrementInput } from "../IncrementInput";
@@ -39,6 +40,8 @@ export const BuyNumbers = ({ id, numberPrice }: RifaType) => {
     setValue((current) => current + valueAdded);
   };
 
+  const route = useRouter();
+
   return (
     <S.Container>
       <S.Grid>
@@ -53,7 +56,9 @@ export const BuyNumbers = ({ id, numberPrice }: RifaType) => {
         handleIncrement={handleIncrement}
         setValue={setValue}
       />
-      <S.Price>Compre por apenas {price}</S.Price>
+      <S.Price onClick={() => route.push(`/checkout/${id}`)}>
+        Compre por apenas {price}
+      </S.Price>
     </S.Container>
   );
 };

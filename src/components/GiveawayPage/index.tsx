@@ -24,7 +24,6 @@ export const GiveawayPage = (data: Props) => {
           <BuyNumbers id={data.loadRifa.id} numberPrice={data.loadRifa.price} />
         )}
       </S.Container>
-      <ModalConfirmPayment open={true} onClose={() => {}} />
     </Base>
   );
 };

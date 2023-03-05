@@ -12,9 +12,6 @@ type Props = {
 export default function Rifa(data: Props) {
   return (
     <>
-      <Head>
-        <title>Sorte do dia | {data.loadRifa.name}</title>
-      </Head>
       <GiveawayPage {...data} />
     </>
   );

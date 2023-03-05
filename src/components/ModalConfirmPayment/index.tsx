@@ -1,8 +1,7 @@
 import { useSession } from "next-auth/react";
-import { Login } from "../Login";
 import * as S from "./styles";
-import { Modal } from "antd";
 import { useState } from "react";
+import { AuthForm } from "../Auth";
 
 type ModalProps = {
   onClose: () => void;
@@ -28,15 +27,9 @@ export const ModalConfirmPayment = ({ onClose, open }: ModalProps) => {
 
   return (
     <>
-      <Modal
-        title="Title"
-        open={open}
-        onOk={handleOk}
-        confirmLoading={confirmLoading}
-        onCancel={handleCancel}
-      >
-        <Login />
-      </Modal>
+      <S.Modal>
+        <AuthForm />
+      </S.Modal>
     </>
   );
 };
