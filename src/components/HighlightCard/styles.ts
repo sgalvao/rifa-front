@@ -19,7 +19,6 @@ export const Container = styled.div`
 export const RifaImage = styled.div`
   width: 100%;
   height: 20rem;
-  background-image: url("dinheiro.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

@@ -14,7 +14,6 @@ export const Container = styled.div`
 export const Image = styled.div`
   width: 8rem;
   height: 8rem;
-  background-image: url("dinheiro.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

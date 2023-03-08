@@ -31,13 +31,12 @@ export const LoginForm = ({ setAccountError }: Props) => {
   const handleLogin = async ({ phone }: FormValues) => {
     setIsLoading(true);
 
-    console.log(phone.replace(/\D/g, ""));
-
-    console.log("teste");
-
     const result = await signIn<"credentials">("credentials", {
       phone: phone.replace(/\D/g, ""),
       redirect: false,
+      callbackUrl: `${window.location.origin}${
+        router.query?.callbackUrl || "/"
+      }`,
     });
 
     if (result?.error) {

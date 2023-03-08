@@ -12,8 +12,10 @@ export const Grid = styled.div`
   gap: 2rem 4rem;
 `;
 
-export const Price = styled.div`
+export const Price = styled.button`
   display: flex;
+  outline: none;
+  border: none;
   align-items: center;
   justify-content: center;
   background: green;
@@ -25,3 +27,5 @@ export const Price = styled.div`
   cursor: pointer;
   font-weight: 800;
 `;
+
+export const Spinner = styled.div``;

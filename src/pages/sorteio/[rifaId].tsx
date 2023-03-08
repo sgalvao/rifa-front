@@ -25,7 +25,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   } = await apollo.query({
     query: LOAD_RIFA,
     variables: {
-      rifaId: context.query.rifaId,
+      rifaId: context.params?.rifaId,
     },
   });
 

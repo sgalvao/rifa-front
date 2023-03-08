@@ -3,6 +3,7 @@ import { HiGiftTop } from "react-icons/hi2";
 import { FiMenu } from "react-icons/fi";
 import { ModalMenu } from "@/components/ModalMenu";
 import { useState } from "react";
+import { useRouter } from "next/router";
 const Header = () => {
   const [open, setOpen] = useState(false);
 
@@ -10,10 +11,12 @@ const Header = () => {
     setOpen(true);
   };
 
+  const route = useRouter();
+
   return (
     <S.Container>
       <S.Wrapper>
-        <S.Logo>
+        <S.Logo onClick={() => route.push("/")}>
           <HiGiftTop size={28} />
           Sorte do Dia
         </S.Logo>
