@@ -84,6 +84,17 @@ export const Numbers = styled.p`
   }
 `;
 
+export const Info = styled.p`
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.4);
+
+  strong {
+    color: #f7cd6e;
+  }
+`;
+
 export const Value = styled.p`
   color: #f8f8f8;
   font-size: 1.2rem;

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import * as S from "./styles";
+import { addMinutes } from "date-fns";
+import dateHelper from "@/helpers/date";
 
 interface TimeLeft {
   minutes: number;
@@ -8,52 +10,44 @@ interface TimeLeft {
 
 type Props = {
   targetDate: string;
+  handleEnd: () => void;
 };
 
-export const CountdownTimer = ({ targetDate }: Props) => {
-  const calculateTimeLeft = (targetDate: string): TimeLeft => {
-    const difference = +new Date(targetDate) - +new Date();
-    let timeLeft: TimeLeft = { minutes: 0, seconds: 0 };
+export const CountdownTimer = ({ targetDate, handleEnd }: Props) => {
+  const date = new Date(targetDate).getTime();
 
-    if (difference > 0) {
-      timeLeft = {
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60),
-      };
-    }
+  const expirationTime = addMinutes(date, 10);
 
-    return timeLeft;
-  };
+  const inicialDate = dateHelper.IntervalFromated(expirationTime, new Date());
 
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(targetDate));
+  const [currentdate, setCurrentDate] = useState(inicialDate);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setTimeLeft(calculateTimeLeft(targetDate));
+    const timer = startTimer();
+    return () => {
+      if (timer) {
+        clearInterval(timer);
+      }
+    };
+  }, []);
+
+  const startTimer = () => {
+    return setInterval(() => {
+      setCurrentDate(dateHelper.IntervalFromated(expirationTime, new Date()));
+      if (new Date() >= expirationTime) {
+        handleEnd();
+      }
     }, 1000);
+  };
 
-    return () => clearTimeout(timer);
-  }, [targetDate]);
-
-  const minutes = timeLeft.minutes.toString().padStart(2, "0");
-  const seconds = timeLeft.seconds.toString().padStart(2, "0");
-
-  const totalSeconds =
-    timeLeft.minutes * 60 + timeLeft.seconds <= 600
-      ? timeLeft.minutes * 60 + timeLeft.seconds
-      : 600;
-
-  const percentage = (totalSeconds / 600) * 100;
   return (
     <>
-      <S.ProgressBar width={percentage} />
-      <S.Timer>
-        <S.TimerValue>{minutes}</S.TimerValue>
-        <S.TimerLabel>minutos</S.TimerLabel>
-        <S.TimerValue>:</S.TimerValue>
-        <S.TimerValue>{seconds}</S.TimerValue>
-        <S.TimerLabel>segundos</S.TimerLabel>
-      </S.Timer>
+      <S.ProgressContainer>
+        <S.Timer>
+          <S.TimerValue>{currentdate}</S.TimerValue>
+        </S.Timer>
+        <S.ProgressBar width={100} />
+      </S.ProgressContainer>
     </>
   );
 };

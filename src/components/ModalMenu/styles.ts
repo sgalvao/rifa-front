@@ -13,7 +13,8 @@ export const Container = styled.div<Props>`
   right: 0;
   top: 0;
   width: 100%;
-  background-color: #424642;
+  z-index: 10;
+  background-color: #3a3a3a;
   animation: slideIn 0.2s ease-in;
   @keyframes slideIn {
     0% {
