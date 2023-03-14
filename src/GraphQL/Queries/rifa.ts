@@ -10,6 +10,7 @@ export const LOAD_RIFAS = gql`
       price
       status
       winnerNumber
+      image
     }
   }
 `;
@@ -25,6 +26,7 @@ export const LOAD_RIFA = gql`
       soldNumbers
       status
       winnerNumber
+      image
     }
   }
 `;

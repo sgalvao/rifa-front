@@ -1,4 +1,9 @@
 import styled from "styled-components";
+import Image from "next/image";
+
+type Props = {
+  url?: string;
+};
 
 export const Container = styled.div`
   display: flex;
@@ -11,9 +16,10 @@ export const Container = styled.div`
   margin-bottom: 1rem;
 `;
 
-export const Image = styled.div`
+export const CardImage = styled(Image)<Props>`
   width: 8rem;
   height: 8rem;
+  background-image: ${({ url }) => `url(${url})`};
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

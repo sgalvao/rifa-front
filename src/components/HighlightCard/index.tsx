@@ -6,6 +6,7 @@ type Props = {
   price: number;
   status: string;
   winnerNumber: number;
+  image: string;
 };
 
 export const HighlightCard = ({
@@ -14,10 +15,11 @@ export const HighlightCard = ({
   price,
   status,
   winnerNumber,
+  image,
 }: Props) => {
   return (
     <S.Container>
-      <S.RifaImage />
+      <S.RifaImage url={image} />
       <S.Wrapper>
         <S.Name>{name}</S.Name>
         <S.Price>

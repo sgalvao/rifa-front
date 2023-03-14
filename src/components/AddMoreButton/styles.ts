@@ -17,6 +17,8 @@ export const AddMoreCard = styled.div<Props>`
   border-radius: 1rem;
   color: rgba(243, 244, 237, 0.6);
 
+  cursor: pointer;
+
   ${({ popular }) =>
     popular &&
     css`

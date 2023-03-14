@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 type Props = {
   isOpen?: boolean;
+  url?: string;
 };
 
 export const Container = styled.div`
@@ -16,9 +17,10 @@ export const Container = styled.div`
   margin-bottom: 1rem;
 `;
 
-export const RifaImage = styled.div`
+export const RifaImage = styled.div<Props>`
   width: 100%;
   height: 20rem;
+  background-image: ${({ url }) => `url(${url})`};
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

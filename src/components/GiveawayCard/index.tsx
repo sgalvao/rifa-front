@@ -7,6 +7,7 @@ type Props = {
   price: number;
   status: string;
   winnerNumber: number;
+  image: string;
 };
 
 export const GiveAwayCard = ({
@@ -15,12 +16,13 @@ export const GiveAwayCard = ({
   price,
   status,
   winnerNumber,
+  image,
 }: Props) => {
   const router = useRouter();
 
   return (
     <S.Container onClick={() => router.push(`/sorteio/${id}`)}>
-      <S.Image />
+      <S.CardImage />
       <S.Wrapper>
         <S.Info>
           <S.Title>{name}</S.Title>

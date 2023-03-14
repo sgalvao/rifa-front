@@ -5,17 +5,17 @@ export type LoadRifa = {
   price: number;
   status: string;
   winnerNumber: number;
+  image: string;
 };
 
 export type LoadRifas = {
   loadRifas: LoadRifa[];
 };
 
-
 export type UserProps = {
-  token: string
-  phone: string
-  name: string
-  id: string
-  email: string
-}
+  token: string;
+  phone: string;
+  name: string;
+  id: string;
+  email: string;
+};

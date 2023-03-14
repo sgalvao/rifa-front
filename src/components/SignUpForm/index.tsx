@@ -6,30 +6,37 @@ import MaskedInput from "react-text-mask";
 import * as S from "./styles";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
+import { CREATE_USER_MUTATION } from "@/GraphQL/Queries/user";
+import { useMutation } from "@apollo/client";
 
 interface FormValues {
   phone: string;
+  email: string;
+  name: string;
 }
 
 const initialValues = {
   phone: "",
+  email: "",
+  name: "",
 };
 
 const validationSchema = Yup.object().shape({
   phone: Yup.string().required("Este campo é obrigatório"),
+  email: Yup.string().email(),
+  name: Yup.string().required("Este campo é obrigatório"),
 });
 
 type Props = {
-  setAccountError: (value: boolean) => void;
-  setPhone: (value: string) => void;
+  phone: string;
 };
 
-export const LoginForm = ({ setAccountError, setPhone }: Props) => {
-  const [loginError, setLoginError] = useState("");
+export const SignUpForm = ({ phone }: Props) => {
   const router = useRouter();
 
+  const [createUser] = useMutation(CREATE_USER_MUTATION);
   const [isLoading, setIsLoading] = useState(false);
-  const handleLogin = async ({ phone }: FormValues) => {
+  const handleLogin = async ({ phone }: Props) => {
     setIsLoading(true);
 
     const result = await signIn<"credentials">("credentials", {
@@ -40,12 +47,6 @@ export const LoginForm = ({ setAccountError, setPhone }: Props) => {
       }`,
     });
 
-    if (result?.error) {
-      setIsLoading(false);
-      setPhone(phone.replace(/\D/g, ""));
-      return setAccountError(true);
-    }
-
     if (result?.url) {
       setIsLoading(false);
 
@@ -53,10 +54,28 @@ export const LoginForm = ({ setAccountError, setPhone }: Props) => {
     }
   };
 
+  const handleSubmit = async ({ phone, email, name }: FormValues) => {
+    const user = await createUser({
+      variables: {
+        user: {
+          phone,
+          email,
+          name,
+        },
+      },
+    });
+
+    if (user.errors) {
+      return;
+    }
+
+    return handleLogin({ phone });
+  };
+
   const authentication = useFormik<FormValues>({
     initialValues,
     validationSchema,
-    onSubmit: handleLogin,
+    onSubmit: handleSubmit,
   });
 
   const phoneNumberMask = [
@@ -84,9 +103,29 @@ export const LoginForm = ({ setAccountError, setPhone }: Props) => {
         mask={phoneNumberMask}
         id="phone"
         name="phone"
-        placeholder="(99) 9 9999-9999"
         type="text"
-        value={authentication.values.phone}
+        value={phone}
+        disabled
+      />
+      <S.Label>
+        Email <p>(opcional)</p>
+      </S.Label>
+      <S.Input
+        id="email"
+        name="email"
+        placeholder="Digite seu email"
+        type="email"
+        value={authentication.values.email}
+        onChange={authentication.handleChange}
+        onBlur={authentication.handleBlur}
+      />
+      <S.Label>Nome completo</S.Label>
+      <S.Input
+        id="name"
+        name="name"
+        placeholder="Digite seu nome completo"
+        type="text"
+        value={authentication.values.name}
         onChange={authentication.handleChange}
         onBlur={authentication.handleBlur}
       />

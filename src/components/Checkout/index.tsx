@@ -4,7 +4,6 @@ import pixLogo from "../../../public/img/pix-logo.svg";
 import { FaReceipt } from "react-icons/fa";
 import { useState } from "react";
 import { PixModal } from "../PixModal";
-import { CountdownTimer } from "../Countdown";
 import { format } from "date-fns";
 
 export type PaymentProps = {
@@ -25,14 +24,9 @@ export type PaymentProps = {
 
 const Checkout = (data: PaymentProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isExpired, setIsExpired] = useState(false);
 
   const handleOpen = () => {
     return setIsOpen(true);
-  };
-
-  const handleFinish = () => {
-    setIsExpired(true);
   };
 
   return (
@@ -47,12 +41,6 @@ const Checkout = (data: PaymentProps) => {
         <strong>após 10 minutos</strong> e os números selecionados voltaram a
         ficar disponíveis para <strong>compra</strong>!
       </S.Info>
-      {/* {!isExpired && (
-        <CountdownTimer
-          handleEnd={handleFinish}
-          targetDate={data.loadPaymentById.createdAt}
-        />
-      )} */}
       <S.Wrapper>
         <S.Title>Ação relâmpago R$2.000,00</S.Title>
         <S.Date>
@@ -67,9 +55,9 @@ const Checkout = (data: PaymentProps) => {
         </S.Quantity>
         <S.Numbers>
           <strong>Cotas: </strong>
-          {data.loadPaymentById.numbers.map((number) =>
-            `${number}, `.padStart(7, "0")
-          )}
+          {data.loadPaymentById.numbers
+            .map((number) => ` ${number}`.padStart(5, "0"))
+            .join(",")}
         </S.Numbers>
         <S.Value>
           <strong>Valor da cota:</strong>{" "}
