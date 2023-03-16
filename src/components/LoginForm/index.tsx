@@ -52,7 +52,7 @@ export const LoginForm = ({ setAccountError, setPhone, cart }: Props) => {
         },
       });
       sessionStorage.removeItem("@checkout-cart");
-      return router.push(
+       router.push(
         `/checkout/${cart?.rifaId}?paymentId=${response?.data?.createPayment.id}`
       );
     };

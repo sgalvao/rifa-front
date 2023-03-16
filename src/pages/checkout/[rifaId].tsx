@@ -28,7 +28,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       },
     };
   }
-
+  console.time("payment");
   const {
     data: { loadPaymentById },
   } = await apollo.query({
@@ -37,6 +37,8 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       id: context.query.paymentId,
     },
   });
+  console.timeEnd("payment");
+  console.time("payment2");
 
   const {
     data: {
@@ -48,6 +50,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       rifaId: context.params?.rifaId,
     },
   });
+  console.timeEnd("payment2");
 
   return {
     props: { session, loadPaymentById, name },

@@ -20,7 +20,6 @@ export const BuyNumbers = ({ id, numberPrice }: RifaType) => {
     isLoading,
     price,
   } = usePayment({ id, numberPrice });
-  console.log(isLoading);
   return (
     <S.Container>
       <S.Grid>
