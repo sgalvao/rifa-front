@@ -6,6 +6,7 @@ import { SlTrophy } from "react-icons/sl";
 import { BsFileEarmarkRuled } from "react-icons/bs";
 
 import * as S from "./styles";
+import { useRouter } from "next/router";
 
 interface ModalProps {
   setClose: () => void;
@@ -13,23 +14,22 @@ interface ModalProps {
 }
 
 export const ModalMenu = ({ setClose, open }: ModalProps) => {
+  const router = useRouter();
+
   return (
     <>
       <S.Container isOpen={open}>
         <S.Wrapper>
           <S.Logo>
             <HiGiftTop size={28} />
-            Sorte do Dia
+            Menu
           </S.Logo>
           <S.CloseButton onClick={setClose}>
             <TfiClose />
           </S.CloseButton>
         </S.Wrapper>
         <S.OptionsList>
-          <S.Item>
-            <BiHomeSmile /> Inicio
-          </S.Item>
-          <S.Item>
+          <S.Item onClick={() => router.push("/myNumbers")}>
             <GiClover /> Meus Números
           </S.Item>
           <S.Item>

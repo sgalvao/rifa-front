@@ -9,7 +9,7 @@ export default function Home(data: LoadRifas) {
   return (
     <>
       <Head>
-        <title>Sorte do dia | prêmios diários</title>
+        <title>Maquina de Prêmios | prêmios diários</title>
       </Head>
       <Homepage {...data} />
     </>

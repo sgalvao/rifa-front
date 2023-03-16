@@ -22,7 +22,7 @@ export const GiveAwayCard = ({
 
   return (
     <S.Container onClick={() => router.push(`/sorteio/${id}`)}>
-      <S.CardImage />
+      <S.CardImage src={image} width={80} height={80} />
       <S.Wrapper>
         <S.Info>
           <S.Title>{name}</S.Title>

@@ -17,10 +17,10 @@ export const BuyNumbers = ({ id, numberPrice }: RifaType) => {
     handleIncrement,
     value,
     setValue,
-    loading,
+    isLoading,
     price,
   } = usePayment({ id, numberPrice });
-
+  console.log(isLoading);
   return (
     <S.Container>
       <S.Grid>
@@ -35,8 +35,8 @@ export const BuyNumbers = ({ id, numberPrice }: RifaType) => {
         handleIncrement={handleIncrement}
         setValue={setValue}
       />
-      <S.Price onClick={handleConfirm} disabled={loading}>
-        Participe por apenas {price}
+      <S.Price onClick={handleConfirm} disabled={isLoading}>
+        {!isLoading ? ` Participe por apenas ${price}` : <S.Spinner />}
       </S.Price>
     </S.Container>
   );

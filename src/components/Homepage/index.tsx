@@ -5,10 +5,11 @@ import { ImFire } from "react-icons/im";
 import { GiveAwayCard } from "@/components/GiveawayCard";
 import { Base } from "@/templates/Base";
 import { LoadRifas } from "@/types/api";
+import { useRouter } from "next/router";
 
 const Homepage = ({ loadRifas }: LoadRifas) => {
   const rifaList = loadRifas.slice(0);
-
+  const router = useRouter()
   return (
     <Base>
       <S.Divider />
@@ -16,7 +17,7 @@ const Homepage = ({ loadRifas }: LoadRifas) => {
         <S.Title>
           <ImFire /> Destaque <ImFire />
         </S.Title>
-        <HighlightCard {...loadRifas[0]} />
+        <HighlightCard {...loadRifas[0]} onClick={() => router.push(`/sorteio/${loadRifas[0].id}`)} />
         {rifaList.map((item) => (
           <GiveAwayCard {...item} key={item.id} />
         ))}

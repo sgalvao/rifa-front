@@ -1,42 +1,74 @@
-import { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useState } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import MaskedInput from "react-text-mask";
 
 import * as S from "./styles";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { CREATE_USER_MUTATION } from "@/GraphQL/Queries/user";
 import { useMutation } from "@apollo/client";
+import { CREATE_PAYMENT } from "@/GraphQL/Mutations/payment";
 
 interface FormValues {
-  phone: string;
   email: string;
   name: string;
 }
 
 const initialValues = {
-  phone: "",
   email: "",
   name: "",
 };
 
 const validationSchema = Yup.object().shape({
-  phone: Yup.string().required("Este campo é obrigatório"),
   email: Yup.string().email(),
   name: Yup.string().required("Este campo é obrigatório"),
 });
 
 type Props = {
   phone: string;
+  cart?: {
+    quantity: number;
+    rifaId: string;
+  };
 };
 
-export const SignUpForm = ({ phone }: Props) => {
+type Auth = {
+  phone: string;
+};
+
+export const SignUpForm = ({ phone, cart }: Props) => {
   const router = useRouter();
 
   const [createUser] = useMutation(CREATE_USER_MUTATION);
   const [isLoading, setIsLoading] = useState(false);
-  const handleLogin = async ({ phone }: Props) => {
+  const [createPayment] = useMutation(CREATE_PAYMENT);
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    const handlePayment = async () => {
+      const response = await createPayment({
+        variables: {
+          rifaId: cart?.rifaId,
+          quantity: cart?.quantity,
+        },
+        context: {
+          session,
+        },
+      });
+      sessionStorage.removeItem("@checkout-cart");
+      return router.push(
+        `/checkout/${cart?.rifaId}?paymentId=${response?.data?.createPayment.id}`
+      );
+    };
+
+    if (cart && session) {
+      handlePayment();
+    }
+  }, [session]);
+
+  const handleLogin = async ({ phone }: Auth) => {
     setIsLoading(true);
 
     const result = await signIn<"credentials">("credentials", {
@@ -47,18 +79,16 @@ export const SignUpForm = ({ phone }: Props) => {
       }`,
     });
 
-    if (result?.url) {
-      setIsLoading(false);
-
+    if (result?.url && !cart) {
       return router.push(result.url);
     }
   };
 
-  const handleSubmit = async ({ phone, email, name }: FormValues) => {
+  const handleSubmit = async ({ email, name }: FormValues) => {
     const user = await createUser({
       variables: {
         user: {
-          phone,
+          phone: phone.replace(/\D/g, ""),
           email,
           name,
         },
@@ -66,7 +96,7 @@ export const SignUpForm = ({ phone }: Props) => {
     });
 
     if (user.errors) {
-      return;
+      return setIsLoading(false);
     }
 
     return handleLogin({ phone });

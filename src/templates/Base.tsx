@@ -1,3 +1,4 @@
+import { Footer } from "@/components/Footer";
 import Header from "@/components/Header";
 import * as S from "./styles";
 
@@ -10,6 +11,7 @@ export const Base = ({ children }: Props) => {
     <S.Container>
       <Header />
       {children}
+      <Footer />
     </S.Container>
   );
 };

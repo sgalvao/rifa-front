@@ -21,8 +21,9 @@ export const usePayment = ({ id, numberPrice }: RifaType) => {
   const [value, setValue] = useState(10);
   const [price, setPrice] = useState("");
   const [paymentData, setPaymentData] = useState<PaymentType>();
+  const [isLoading, setIsLoading] = useState(false);
 
-  const [createPayment, { loading, error }] = useMutation(CREATE_PAYMENT, {
+  const [createPayment, { error }] = useMutation(CREATE_PAYMENT, {
     onCompleted: (data) => setPaymentData(data),
   });
 
@@ -58,7 +59,7 @@ export const usePayment = ({ id, numberPrice }: RifaType) => {
   const { data: session } = useSession();
 
   const handleConfirm = async () => {
-    setQuantity(value);
+    setIsLoading(true);
     setRifaId(id);
     const values = {
       rifaId: id,
@@ -68,6 +69,7 @@ export const usePayment = ({ id, numberPrice }: RifaType) => {
     sessionStorage.setItem("@checkout-cart", JSON.stringify(values));
 
     if (session) {
+      setQuantity(value);
       const response = await createPayment({
         variables: {
           rifaId: id,
@@ -77,10 +79,13 @@ export const usePayment = ({ id, numberPrice }: RifaType) => {
           session,
         },
       });
+      setIsLoading(false);
       return route.push(
         `/checkout/${id}?paymentId=${response?.data?.createPayment.id}`
       );
     }
+
+    return route.push("/login");
   };
 
   return {
@@ -90,7 +95,7 @@ export const usePayment = ({ id, numberPrice }: RifaType) => {
     handleIncrement,
     value,
     setValue,
-    loading,
+    isLoading,
     price,
   };
 };

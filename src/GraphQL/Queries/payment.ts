@@ -16,3 +16,16 @@ export const LOAD_PAYMENT_BY_ID = gql`
     }
   }
 `;
+
+
+export const LOAD_PURCHASED_NUMBERS = gql`
+  query LoadPurchasedNumbers {
+    loadPurchasedNumbers {
+      numbers
+      rifaId
+      image
+      name
+      status
+    }
+  }
+`;

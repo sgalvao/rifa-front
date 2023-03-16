@@ -65,7 +65,7 @@ export const Spinner = styled.div`
   }
 `;
 
-export const Label = styled.p`
+export const Label = styled.div`
   display: flex;
   align-items: center;
   font-size: 1.6rem;

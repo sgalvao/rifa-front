@@ -19,10 +19,6 @@ export const Container = styled.div`
 export const CardImage = styled(Image)<Props>`
   width: 8rem;
   height: 8rem;
-  background-image: ${({ url }) => `url(${url})`};
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   border-radius: 1.2rem;
 `;
 

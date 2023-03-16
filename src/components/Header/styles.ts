@@ -9,39 +9,34 @@ export const Container = styled.div`
   display: flex;
   max-width: 130rem;
   width: 100%;
+  max-height: 16rem;
   justify-content: space-between;
   align-items: center;
-  padding: 3rem 1rem 3rem 0rem;
+  padding: 1rem 1rem 0 0;
 `;
 
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
+  width:100%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.02);
 `;
 
-export const Logo = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.6rem;
-  color: #f3f4ed;
-  font-weight: normal;
-  font-family: "Poppins", sans-serif;
-  svg {
-    fill: #c06014;
-    margin-right: 1rem;
-  }
-  ${media.lessThan("medium")`
-    font-size:1.6rem;
-    `}
+export const Logo = styled.div``;
+
+export const Image = styled.img<any>`
+  max-width: 20rem;
 `;
 
 export const Divider = styled.div`
   width: 1px;
   height: 2rem;
-  margin: 0 1.2rem;
+  margin-right: 1.2rem;
   background-color: rgb(243, 244, 237, 0.3);
+  ${media.lessThan("medium")`
+    display: none;
+    `}
 `;
 
 export const Title = styled.h1`
@@ -49,7 +44,7 @@ export const Title = styled.h1`
   color: rgb(243, 244, 237, 0.3);
   font-family: "Poppins", sans-serif;
   ${media.lessThan("medium")`
-    font-size:1rem;
+    display: none;
     `}
 `;
 

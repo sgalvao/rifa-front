@@ -7,6 +7,7 @@ type Props = {
   status: string;
   winnerNumber: number;
   image: string;
+  onClick?: () => void;
 };
 
 export const HighlightCard = ({
@@ -16,9 +17,10 @@ export const HighlightCard = ({
   status,
   winnerNumber,
   image,
+  onClick,
 }: Props) => {
   return (
-    <S.Container>
+    <S.Container onClick={onClick}>
       <S.RifaImage url={image} />
       <S.Wrapper>
         <S.Name>{name}</S.Name>

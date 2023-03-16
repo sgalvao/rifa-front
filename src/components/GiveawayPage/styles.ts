@@ -11,8 +11,28 @@ export const Container = styled.div`
   background: #536162;
 `;
 
-export const Image = styled.div``;
+export const FinishedContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #2cc10a;
+  border-radius: 0.8rem;
+  padding: 1rem;
+`;
 
-export const Title = styled.h1``;
+export const WinnerName = styled.h1`
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  color: #f8f8f8;
+`;
 
-export const Price = styled.p``;
+export const WinnerNumber = styled.h2`
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  color: #f8f8f8;
+`;
+export const Date = styled.h2`
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  color: #f8f8f8;
+`;

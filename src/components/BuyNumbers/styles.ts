@@ -28,4 +28,19 @@ export const Price = styled.button`
   font-weight: 800;
 `;
 
-export const Spinner = styled.div``;
+export const Spinner = styled.div`
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border-top: 2px solid #f8f8f8;
+
+  animation: spin 0.4s linear infinite;
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+`;
