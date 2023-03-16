@@ -13,7 +13,7 @@ import isEqual from "lodash/isEqual";
 
 let apolloClient: ApolloClient<NormalizedCacheObject | null>;
 
-export const createApolloClient = (session?: Session | null) => {
+export const createApolloClient = (session?: Session | any) => {
   const httpLink = new HttpLink({
     uri: process.env.NEXT_PUBLIC_GRAPHQL_HOST,
   });
