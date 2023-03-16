@@ -9,7 +9,7 @@ export default function Home(data: LoadRifas) {
   return (
     <>
       <Head>
-        <title>Maquina de Prêmios | prêmios diários</title>
+        <title>Maquina de Prêmios</title>
       </Head>
       <Homepage {...data} />
     </>
