@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 
 const Homepage = ({ loadRifas }: LoadRifas) => {
   const rifaList = loadRifas.slice(0);
-  const router = useRouter()
+  const router = useRouter();
   return (
     <Base>
       <S.Divider />
@@ -17,10 +17,14 @@ const Homepage = ({ loadRifas }: LoadRifas) => {
         <S.Title>
           <ImFire /> Destaque <ImFire />
         </S.Title>
-        <HighlightCard {...loadRifas[0]} onClick={() => router.push(`/sorteio/${loadRifas[0].id}`)} />
-        {rifaList.map((item) => (
-          <GiveAwayCard {...item} key={item.id} />
-        ))}
+        {loadRifas.length && (
+          <HighlightCard
+            {...loadRifas[0]}
+            onClick={() => router.push(`/sorteio/${loadRifas[0].id}`)}
+          />
+        )}
+        {rifaList &&
+          rifaList.map((item) => <GiveAwayCard {...item} key={item.id} />)}
       </S.Content>
     </Base>
   );
