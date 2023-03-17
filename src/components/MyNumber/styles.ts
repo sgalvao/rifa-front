@@ -12,11 +12,17 @@ export const Container = styled.div`
   }
 `;
 
-export const Info = styled.p`
+export const Info = styled.span`
   font-family: "Poppins", sans-serif;
   font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.5);
   text-align: center;
+
+  strong {
+  color: #f7cd6e;
+
+  }
+
 `;
 
 export const Title = styled.h1`

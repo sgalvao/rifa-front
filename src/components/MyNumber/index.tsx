@@ -34,7 +34,7 @@ export const MyNumber = (data: PurchasedListProps) => {
           <S.Info>
             Você ainda não possui nenhum numero! Caso tenha comprado cotas
             aguarde a confirmação do pagamento em nosso sistema e confira
-            novamente
+            novamente <strong>esta ação pode levar até 5 minutos!</strong>
           </S.Info>
         </>
       )}

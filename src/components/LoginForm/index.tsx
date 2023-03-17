@@ -55,6 +55,7 @@ export const LoginForm = ({ setAccountError, setPhone, cart }: Props) => {
        router.push(
         `/checkout/${cart?.rifaId}?paymentId=${response?.data?.createPayment.id}`
       );
+      return
     };
 
     if (cart && session) {

@@ -42,7 +42,7 @@ const Checkout = (data: PaymentProps) => {
         ficar disponíveis para <strong>compra</strong>!
       </S.Info>
       <S.Wrapper>
-        <S.Title>Ação relâmpago R$2.000,00</S.Title>
+        <S.Title>{data.name}</S.Title>
         <S.Date>
           <strong>Data da compra:</strong>{" "}
           {format(new Date(data.loadPaymentById.createdAt), "dd/MM/yy HH:mm")}
