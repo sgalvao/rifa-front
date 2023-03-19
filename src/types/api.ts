@@ -8,6 +8,7 @@ export type LoadRifa = {
   winnerName: string;
   image: string;
   finishedDate: string;
+  description: string;
 };
 
 export type LoadRifas = {

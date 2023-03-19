@@ -22,6 +22,10 @@ export const GiveawayPage = (data: Props) => {
           winnerNumber={data.loadRifa.winnerNumber}
           image={data.loadRifa.image}
         />
+        <S.DescriptionContainer>
+          <S.DescriptionTitle>Descrição</S.DescriptionTitle>
+          <S.Description>{data.loadRifa.description}</S.Description>
+        </S.DescriptionContainer>
         <MyNumbersButton />
         {data.loadRifa.status === "OPEN" ? (
           <BuyNumbers id={data.loadRifa.id} numberPrice={data.loadRifa.price} />

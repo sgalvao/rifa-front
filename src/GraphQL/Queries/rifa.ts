@@ -31,6 +31,7 @@ export const LOAD_RIFA = gql`
       image
       isFinished
       finishedDate
+      description
     }
   }
 `;
