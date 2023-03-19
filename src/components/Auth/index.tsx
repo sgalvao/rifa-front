@@ -25,7 +25,7 @@ export const AuthForm = () => {
 
   return (
     <S.Container>
-      <S.Title>Finalizar Compra</S.Title>
+      <S.Title>{checkoutItem ? "Finalizar Pedido" : "Conectar-se"}</S.Title>
       {checkoutItem && (
         <Alert severity="info" color="success">
           <AlertTitle>

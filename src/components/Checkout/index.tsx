@@ -77,7 +77,7 @@ const Checkout = (data: PaymentProps) => {
         </S.TotalValue>
       </S.Wrapper>
       <S.PixContainer onClick={handleOpen}>
-        <S.PixButton>Pague agora com</S.PixButton>
+        <S.PixButton>Clique aqui para pagar com</S.PixButton>
         <S.PixCard url={pixLogo}></S.PixCard>
       </S.PixContainer>
       <PixModal
