@@ -4,9 +4,11 @@ import { BiHomeSmile, BiSupport } from "react-icons/bi";
 import { GiClover } from "react-icons/gi";
 import { SlTrophy } from "react-icons/sl";
 import { BsFileEarmarkRuled } from "react-icons/bs";
+import { FaTelegramPlane } from "react-icons/fa";
 
 import * as S from "./styles";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 interface ModalProps {
   setClose: () => void;
@@ -32,14 +34,21 @@ export const ModalMenu = ({ setClose, open }: ModalProps) => {
           <S.Item onClick={() => router.push("/myNumbers")}>
             <GiClover /> Meus Números
           </S.Item>
-          <S.Item>
+          <S.Item onClick={() => router.push("/winners")}>
             <SlTrophy /> Ganhadores
           </S.Item>
-          <S.Item>
+          <S.Item onClick={() => router.push("/about")}>
             <BsFileEarmarkRuled /> Sobre as Ações
           </S.Item>
+
           <S.Item>
-            <BiSupport /> Suporte
+            <a
+              href="https://t.me/sortediariapremios"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaTelegramPlane /> Telegram
+            </a>
           </S.Item>
         </S.OptionsList>
       </S.Container>
