@@ -15,7 +15,7 @@ export const FinishedContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: #2cc10a;
+  background-color: #28ad09;
   border-radius: 0.8rem;
   padding: 1rem;
 `;
@@ -23,6 +23,7 @@ export const FinishedContainer = styled.div`
 export const WinnerName = styled.h1`
   font-family: "Poppins", sans-serif;
   font-size: 1.4rem;
+  font-weight: bold;
   color: #f8f8f8;
 `;
 

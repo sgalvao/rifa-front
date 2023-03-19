@@ -4,6 +4,7 @@ import { BuyNumbers } from "../BuyNumbers";
 import { HighlightCard } from "../HighlightCard";
 import { MyNumbersButton } from "../MyNumbersButton";
 import * as S from "./styles";
+import { format } from "date-fns";
 
 type Props = {
   loadRifa: LoadRifa;
@@ -26,11 +27,14 @@ export const GiveawayPage = (data: Props) => {
           <BuyNumbers id={data.loadRifa.id} numberPrice={data.loadRifa.price} />
         ) : (
           <S.FinishedContainer>
-            <S.WinnerName>Ganhador: </S.WinnerName>
+            <S.WinnerName>Ganhador: {data.loadRifa.winnerName}</S.WinnerName>
             <S.WinnerNumber>
               Numero sorteado: {data.loadRifa.winnerNumber}
             </S.WinnerNumber>
-            <S.Date>Data do resultado: 17/03/2023</S.Date>
+            <S.Date>
+              Data do resultado:{" "}
+              {format(new Date(data.loadRifa.finishedDate), "dd/MM/yy HH:mm")}
+            </S.Date>
           </S.FinishedContainer>
         )}
       </S.Container>

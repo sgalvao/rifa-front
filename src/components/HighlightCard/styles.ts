@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 type Props = {
-  isOpen?: boolean;
+  status?: string;
   url?: string;
 };
 
@@ -51,23 +51,26 @@ export const Info = styled.div`
 `;
 
 export const Status = styled.div<Props>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: max-content;
-  color: #fff;
-  font-size: 1.1rem;
-  font-family: "Poppins", sans-serif;
-  background: #c06014;
-  padding: 0.4rem 1rem;
-  border-radius: 0.8rem;
-  animation: 1.8s showIn linear infinite;
+  ${({ status }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    color: #fff;
+    font-size: 1.1rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    background: ${status === "OPEN" ? "#c06014" : "#303240"};
+    padding: 0.4rem 1rem;
+    border-radius: 0.8rem;
+    ${status === "OPEN" ? " animation: 1.8s showIn linear infinite;" : null}
 
-  @keyframes showIn {
-    50% {
-      opacity: 0;
+    @keyframes showIn {
+      50% {
+        opacity: 0;
+      }
     }
-  }
+  `}
 `;
 
 export const Price = styled.p`

@@ -32,7 +32,9 @@ export const HighlightCard = ({
           })}
         </S.Price>
       </S.Wrapper>
-      <S.Status>{status === "OPEN" ? "Adquira já!" : "Finalizado!"}</S.Status>
+      <S.Status status={status}>
+        {status === "OPEN" ? "Adquira já!" : "Finalizado!"}
+      </S.Status>
     </S.Container>
   );
 };

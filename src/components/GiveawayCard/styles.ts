@@ -47,16 +47,16 @@ export const Price = styled.p`
   font-size: 1.2rem;
 `;
 
-export const Status = styled.div`
+export const Status = styled.div<any>`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 7rem;
   color: #f8f8f8;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-family: "Poppins", sans-serif;
-  background: #c06014;
-  padding: 0.2rem 0.8rem;
+  background: ${({ status }) => (status === "OPEN" ? "#c06014" : "#303240")};
+  padding: 0.2rem 0.6rem;
   border-radius: 0.8rem;
 `;
 

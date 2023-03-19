@@ -10,6 +10,7 @@ export const LOAD_RIFAS = gql`
       price
       status
       winnerNumber
+      winnerName
       image
     }
   }
@@ -18,15 +19,18 @@ export const LOAD_RIFAS = gql`
 export const LOAD_RIFA = gql`
   query LoadRifa($rifaId: String!) {
     loadRifa(rifaId: $rifaId) {
-      authorId
       id
       name
-      participants
       price
-      soldNumbers
+      authorId
+      participants
       status
       winnerNumber
+      winnerName
+      soldNumbers
       image
+      isFinished
+      finishedDate
     }
   }
 `;

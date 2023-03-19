@@ -5,7 +5,9 @@ export type LoadRifa = {
   price: number;
   status: string;
   winnerNumber: number;
+  winnerName: string;
   image: string;
+  finishedDate: string;
 };
 
 export type LoadRifas = {

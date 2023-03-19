@@ -34,7 +34,9 @@ export const GiveAwayCard = ({
             })}
           </S.Price>
         </S.Info>
-        <S.Status>{status === "OPEN" ? "Adquira já!" : "Finalizado!"}</S.Status>
+        <S.Status status={status}>
+          {status === "OPEN" ? "Adquira já!" : "Finalizado!"}
+        </S.Status>
       </S.Wrapper>
     </S.Container>
   );
