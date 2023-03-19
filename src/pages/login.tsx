@@ -1,11 +1,15 @@
 import { AuthForm } from "@/components/Auth";
 import { Base } from "@/templates/Base";
 import { getSession } from "next-auth/react";
+import Head from "next/head";
 import { GetServerSidePropsContext } from "next/types";
 
 export default function Login() {
   return (
     <Base>
+      <Head>
+        <title>Maquina de prêmios</title>
+      </Head>
       <AuthForm />
     </Base>
   );

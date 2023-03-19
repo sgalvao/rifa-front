@@ -21,3 +21,17 @@ export type UserProps = {
   id: string;
   email: string;
 };
+
+export type WinnerProps = {
+  rifaId: string;
+  rifaImage: string;
+  rifaName: string;
+  winnerId: string;
+  winnerName: string;
+  winnerNumber: number;
+  createdAt: Date;
+};
+
+export type WinnersProps = {
+  loadWinners: WinnerProps[];
+};
