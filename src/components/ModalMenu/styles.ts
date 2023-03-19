@@ -108,6 +108,11 @@ export const Item = styled.div`
   color: #f3f4ed;
   margin: 1rem 0;
 
+  a {
+    text-decoration: none;
+    color: #f3f4ed;
+  }
+
   svg {
     margin-right: 1rem;
   }
