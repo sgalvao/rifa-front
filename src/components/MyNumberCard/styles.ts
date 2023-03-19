@@ -6,7 +6,7 @@ export const Container = styled.div`
   width: 100%;
   background-color: #424642;
   padding: 1rem;
-  border-radius: 1rem;
+  border-radius: 1.2rem;
   margin-top: 1rem;
 `;
 
@@ -20,7 +20,6 @@ export const ImageContainer = styled.div<any>`
   min-width: 7rem;
   height: 7rem;
   background-image: ${({ url }) => `url(${url})`};
-  background-color: red;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
