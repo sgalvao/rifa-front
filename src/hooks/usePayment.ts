@@ -5,27 +5,19 @@ import { useMutation } from "@apollo/client";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 type RifaType = {
   id: string;
   numberPrice: number;
 };
 
-type PaymentType = {
-  createPayment: {
-    id: string;
-  };
-};
-
 export const usePayment = ({ id, numberPrice }: RifaType) => {
   const [value, setValue] = useState(10);
   const [price, setPrice] = useState("");
-  const [paymentData, setPaymentData] = useState<PaymentType>();
   const [isLoading, setIsLoading] = useState(false);
 
-  const [createPayment, { error }] = useMutation(CREATE_PAYMENT, {
-    onCompleted: (data) => setPaymentData(data),
-  });
+  const [createPayment] = useMutation(CREATE_PAYMENT);
 
   const { setRifaId, setQuantity } = useContext(CheckoutContext);
   useEffect(() => {
@@ -68,24 +60,24 @@ export const usePayment = ({ id, numberPrice }: RifaType) => {
 
     sessionStorage.setItem("@checkout-cart", JSON.stringify(values));
 
-    if (session) {
-      setQuantity(value);
-      const response = await createPayment({
-        variables: {
-          rifaId: id,
-          quantity: value,
-        },
-        context: {
-          session,
-        },
-      });
-      setIsLoading(false);
-      route.push(
-        `/checkout/${id}?paymentId=${response?.data?.createPayment.id}`
-      );
+    if (!session) {
+      return route.push("/login");
     }
 
-    return route.push("/login");
+    setQuantity(value);
+
+    toast("Gerando Números... Aguarde!");
+    const response = await createPayment({
+      variables: {
+        rifaId: id,
+        quantity: value,
+      },
+      context: {
+        session,
+      },
+    });
+    setIsLoading(false);
+    route.push(`/checkout/${id}?paymentId=${response?.data?.createPayment.id}`);
   };
 
   return {

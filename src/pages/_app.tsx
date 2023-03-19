@@ -3,8 +3,9 @@ import { ApolloProvider } from "@apollo/client";
 import GlobalStyle from "@/styles/global";
 import { SessionProvider } from "next-auth/react";
 import { useApollo } from "@/utils/apollo";
-import CssBaseline from "@mui/material/CssBaseline";
 import CheckoutProvider from "@/context/CheckoutProvider";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 export default function App({
   Component,
@@ -17,6 +18,19 @@ export default function App({
         <ApolloProvider client={client}>
           <GlobalStyle />
           <Component {...pageProps} />
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            limit={2}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
         </ApolloProvider>
       </CheckoutProvider>
     </SessionProvider>

@@ -16,7 +16,6 @@ export const MyNumberCard = ({
   image,
   rifaId,
 }: PurchasedProps) => {
-  console.log(numbers);
   const router = useRouter();
 
   return (

@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 import { CREATE_USER_MUTATION } from "@/GraphQL/Mutations/user";
 import { useMutation } from "@apollo/client";
 import { CREATE_PAYMENT } from "@/GraphQL/Mutations/payment";
+import { toast } from "react-toastify";
 
 interface FormValues {
   email: string;
@@ -48,6 +49,7 @@ export const SignUpForm = ({ phone, cart }: Props) => {
 
   useEffect(() => {
     const handlePayment = async () => {
+      toast("Gerando Números... Aguarde!");
       const response = await createPayment({
         variables: {
           rifaId: cart?.rifaId,
@@ -58,7 +60,8 @@ export const SignUpForm = ({ phone, cart }: Props) => {
         },
       });
       sessionStorage.removeItem("@checkout-cart");
-      return router.push(
+
+      router.push(
         `/checkout/${cart?.rifaId}?paymentId=${response?.data?.createPayment.id}`
       );
     };
@@ -70,6 +73,7 @@ export const SignUpForm = ({ phone, cart }: Props) => {
 
   const handleLogin = async ({ phone }: Auth) => {
     setIsLoading(true);
+    toast("Conectando...");
 
     const result = await signIn<"credentials">("credentials", {
       phone: phone.replace(/\D/g, ""),
@@ -85,6 +89,7 @@ export const SignUpForm = ({ phone, cart }: Props) => {
   };
 
   const handleSubmit = async ({ email, name }: FormValues) => {
+    toast("Criando conta..");
     const user = await createUser({
       variables: {
         user: {
@@ -137,9 +142,7 @@ export const SignUpForm = ({ phone, cart }: Props) => {
         value={phone}
         disabled
       />
-      <S.Label>
-        Email <p>(opcional)</p>
-      </S.Label>
+      <S.Label>Email</S.Label>
       <S.Input
         id="email"
         name="email"
