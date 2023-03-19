@@ -51,14 +51,13 @@ export const usePayment = ({ id, numberPrice }: RifaType) => {
   const { data: session } = useSession();
 
   const handleConfirm = async () => {
-    setIsLoading(true);
-    setRifaId(id);
     const values = {
       rifaId: id,
       quantity: value,
     };
-
     sessionStorage.setItem("@checkout-cart", JSON.stringify(values));
+    setRifaId(id);
+    setIsLoading(true);
 
     if (!session) {
       return route.push("/login");
@@ -66,18 +65,25 @@ export const usePayment = ({ id, numberPrice }: RifaType) => {
 
     setQuantity(value);
 
-    toast("Gerando Números... Aguarde!");
-    const response = await createPayment({
-      variables: {
-        rifaId: id,
-        quantity: value,
-      },
-      context: {
-        session,
-      },
-    });
+    try {
+      toast("🚀 Gerando Números... Aguarde!");
+      const response = await createPayment({
+        variables: {
+          rifaId: id,
+          quantity: value,
+        },
+        context: {
+          session,
+        },
+      });
+      sessionStorage.removeItem("@checkout-cart");
+      route.push(
+        `/checkout/${id}?paymentId=${response?.data?.createPayment.id}`
+      );
+    } catch (e: any) {
+      toast.error(`🚨 ${e.message}`);
+    }
     setIsLoading(false);
-    route.push(`/checkout/${id}?paymentId=${response?.data?.createPayment.id}`);
   };
 
   return {

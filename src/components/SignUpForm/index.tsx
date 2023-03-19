@@ -50,20 +50,23 @@ export const SignUpForm = ({ phone, cart }: Props) => {
   useEffect(() => {
     const handlePayment = async () => {
       toast("Gerando Números... Aguarde!");
-      const response = await createPayment({
-        variables: {
-          rifaId: cart?.rifaId,
-          quantity: cart?.quantity,
-        },
-        context: {
-          session,
-        },
-      });
-      sessionStorage.removeItem("@checkout-cart");
-
-      router.push(
-        `/checkout/${cart?.rifaId}?paymentId=${response?.data?.createPayment.id}`
-      );
+      try {
+        const response = await createPayment({
+          variables: {
+            rifaId: cart?.rifaId,
+            quantity: cart?.quantity,
+          },
+          context: {
+            session,
+          },
+        });
+        sessionStorage.removeItem("@checkout-cart");
+        router.push(
+          `/checkout/${cart?.rifaId}?paymentId=${response?.data?.createPayment.id}`
+        );
+      } catch (e: any) {
+        toast.error(`🚨 ${e.message}`);
+      }
     };
 
     if (cart && session) {
@@ -73,7 +76,7 @@ export const SignUpForm = ({ phone, cart }: Props) => {
 
   const handleLogin = async ({ phone }: Auth) => {
     setIsLoading(true);
-    toast("Conectando...");
+    toast("🚀 Conectando...");
 
     const result = await signIn<"credentials">("credentials", {
       phone: phone.replace(/\D/g, ""),
@@ -89,22 +92,22 @@ export const SignUpForm = ({ phone, cart }: Props) => {
   };
 
   const handleSubmit = async ({ email, name }: FormValues) => {
-    toast("Criando conta..");
-    const user = await createUser({
-      variables: {
-        user: {
-          phone: phone.replace(/\D/g, ""),
-          email,
-          name,
+    try {
+      toast("🚧 Criando conta..");
+      await createUser({
+        variables: {
+          user: {
+            phone: phone.replace(/\D/g, ""),
+            email,
+            name,
+          },
         },
-      },
-    });
-
-    if (user.errors) {
+      });
+      return handleLogin({ phone });
+    } catch (e: any) {
+      toast.error(`🚨 ${e.message}`);
       return setIsLoading(false);
     }
-
-    return handleLogin({ phone });
   };
 
   const authentication = useFormik<FormValues>({

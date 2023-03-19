@@ -9,6 +9,7 @@ import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { CREATE_PAYMENT } from "@/GraphQL/Mutations/payment";
 import { useMutation } from "@apollo/client";
+import { toast } from "react-toastify";
 
 interface FormValues {
   phone: string;
@@ -42,20 +43,24 @@ export const LoginForm = ({ setAccountError, setPhone, cart }: Props) => {
 
   useEffect(() => {
     const handlePayment = async () => {
-      const response = await createPayment({
-        variables: {
-          rifaId: cart?.rifaId,
-          quantity: cart?.quantity,
-        },
-        context: {
-          session,
-        },
-      });
-      sessionStorage.removeItem("@checkout-cart");
-       router.push(
-        `/checkout/${cart?.rifaId}?paymentId=${response?.data?.createPayment.id}`
-      );
-      return
+      try {
+        toast("🚀 Gerando Números... Aguarde!");
+        const response = await createPayment({
+          variables: {
+            rifaId: cart?.rifaId,
+            quantity: cart?.quantity,
+          },
+          context: {
+            session,
+          },
+        });
+        sessionStorage.removeItem("@checkout-cart");
+        router.push(
+          `/checkout/${cart?.rifaId}?paymentId=${response?.data?.createPayment.id}`
+        );
+      } catch (e: any) {
+        toast.error(`🚨 ${e.message}`);
+      }
     };
 
     if (cart && session) {
@@ -66,6 +71,7 @@ export const LoginForm = ({ setAccountError, setPhone, cart }: Props) => {
   const handleLogin = async ({ phone }: FormValues) => {
     setIsLoading(true);
 
+    toast("🚀Conectando...");
     const result = await signIn<"credentials">("credentials", {
       phone: phone.replace(/\D/g, ""),
       redirect: false,
@@ -76,6 +82,7 @@ export const LoginForm = ({ setAccountError, setPhone, cart }: Props) => {
 
     if (result?.error) {
       setPhone(phone);
+      toast.error("🚨Usuário invalido");
       return setAccountError(true);
     }
 

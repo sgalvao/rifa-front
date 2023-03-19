@@ -2,7 +2,7 @@
 import * as S from "./styles";
 import pixLogo from "../../../public/img/pix-logo.svg";
 import { FaReceipt } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PixModal } from "../PixModal";
 import { format } from "date-fns";
 
