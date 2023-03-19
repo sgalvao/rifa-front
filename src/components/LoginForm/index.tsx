@@ -55,7 +55,7 @@ export const LoginForm = ({ setAccountError, setPhone, cart }: Props) => {
           },
         });
         sessionStorage.removeItem("@checkout-cart");
-        router.push(
+        return router.push(
           `/checkout/${cart?.rifaId}?paymentId=${response?.data?.createPayment.id}`
         );
       } catch (e: any) {

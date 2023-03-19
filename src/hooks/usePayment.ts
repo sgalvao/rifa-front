@@ -80,7 +80,7 @@ export const usePayment = ({ id, numberPrice }: RifaType) => {
         },
       });
       sessionStorage.removeItem("@checkout-cart");
-      route.push(
+      return route.push(
         `/checkout/${id}?paymentId=${response?.data?.createPayment.id}`
       );
     } catch (e: any) {
