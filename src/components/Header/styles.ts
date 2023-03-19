@@ -17,16 +17,14 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
   display: flex;
+  width: 100%;
   align-items: center;
-  justify-content: center;
-  width:100%;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
 `;
 
 export const Logo = styled.div``;
 
 export const Image = styled.img<any>`
-  max-width: 20rem;
+  max-width: 15rem;
 `;
 
 export const Divider = styled.div`
@@ -35,17 +33,14 @@ export const Divider = styled.div`
   margin-right: 1.2rem;
   background-color: rgb(243, 244, 237, 0.3);
   ${media.lessThan("medium")`
-    display: none;
     `}
 `;
 
 export const Title = styled.h1`
-  font-size: 1.8rem;
-  color: rgb(243, 244, 237, 0.3);
+  font-size: 1.4rem;
+  color: rgb(243, 244, 237, 0.6);
   font-family: "Poppins", sans-serif;
-  ${media.lessThan("medium")`
-    display: none;
-    `}
+  font-weight: 100;
 `;
 
 export const Button = styled.button<Props>`

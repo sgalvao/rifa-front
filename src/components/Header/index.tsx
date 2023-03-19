@@ -4,7 +4,6 @@ import { FiMenu } from "react-icons/fi";
 import { ModalMenu } from "@/components/ModalMenu";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import Image from "next/image";
 const Header = () => {
   const [open, setOpen] = useState(false);
 

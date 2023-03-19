@@ -15,7 +15,6 @@ export const AuthForm = () => {
   const [invalidAccount, setInvalidAccount] = useState(false);
   const [phone, setPhone] = useState("");
   const [checkoutItem, setCheckoutItem] = useState<ItemProps>();
-  const { data: session } = useSession();
 
   useEffect(() => {
     const item = sessionStorage.getItem("@checkout-cart");

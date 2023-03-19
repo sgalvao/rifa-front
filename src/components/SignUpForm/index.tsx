@@ -7,7 +7,7 @@ import MaskedInput from "react-text-mask";
 import * as S from "./styles";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import { CREATE_USER_MUTATION } from "@/GraphQL/Queries/user";
+import { CREATE_USER_MUTATION } from "@/GraphQL/Mutations/user";
 import { useMutation } from "@apollo/client";
 import { CREATE_PAYMENT } from "@/GraphQL/Mutations/payment";
 
