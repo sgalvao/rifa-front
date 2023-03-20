@@ -32,10 +32,9 @@ export const usePayment = ({ id, numberPrice }: RifaType) => {
   }, [value]);
 
   const handleDecrement = () => {
-    if (value <= 5) {
-      return;
+    if (value > 5) {
+      return setValue((current: number) => current - 1);
     }
-    setValue((current: number) => current - 1);
   };
 
   const handleIncrement = () => {
