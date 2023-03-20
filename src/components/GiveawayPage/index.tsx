@@ -11,6 +11,7 @@ type Props = {
 };
 
 export const GiveawayPage = (data: Props) => {
+  const description = data.loadRifa.description.replace(/\\n/g, "<br>");
   return (
     <Base>
       <S.Container>
@@ -24,7 +25,11 @@ export const GiveawayPage = (data: Props) => {
         />
         <S.DescriptionContainer>
           <S.DescriptionTitle>Descrição</S.DescriptionTitle>
-          <S.Description>{data.loadRifa.description}</S.Description>
+          <S.Description
+            dangerouslySetInnerHTML={{
+              __html: description,
+            }}
+          ></S.Description>
         </S.DescriptionContainer>
         <MyNumbersButton />
         {data.loadRifa.status === "OPEN" ? (
