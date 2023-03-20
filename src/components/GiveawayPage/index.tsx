@@ -37,7 +37,7 @@ export const GiveawayPage = (data: Props) => {
             </S.WinnerNumber>
             <S.Date>
               Data do resultado:{" "}
-              {format(new Date(data.loadRifa.finishedDate), "dd/MM/yy HH:mm")}
+              {format(new Date(data.loadRifa.finishedDate), "dd/MM/yyyy")}
             </S.Date>
           </S.FinishedContainer>
         )}

@@ -17,8 +17,8 @@ export const Container = styled.div`
 `;
 
 export const CardImage = styled(Image)<Props>`
-  width: 8rem;
-  height: 8rem;
+  width: 9rem;
+  height: 9rem;
   border-radius: 1.2rem;
 `;
 
