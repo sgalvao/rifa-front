@@ -33,6 +33,7 @@ export const usePayment = ({ id, numberPrice }: RifaType) => {
 
   const handleDecrement = () => {
     if (value > 5) {
+      console.log("teste", value);
       return setValue((current: number) => current - 1);
     }
   };
