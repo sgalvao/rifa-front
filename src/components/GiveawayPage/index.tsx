@@ -5,6 +5,7 @@ import { HighlightCard } from "../HighlightCard";
 import { MyNumbersButton } from "../MyNumbersButton";
 import * as S from "./styles";
 import { format } from "date-fns";
+import { ProgressiveBar } from "../ProgressBar";
 
 type Props = {
   loadRifa: LoadRifa;
@@ -23,13 +24,14 @@ export const GiveawayPage = (data: Props) => {
           winnerNumber={data.loadRifa.winnerNumber}
           image={data.loadRifa.image}
         />
+        <ProgressiveBar />
         <S.DescriptionContainer>
           <S.DescriptionTitle>Descrição</S.DescriptionTitle>
           <S.Description
             dangerouslySetInnerHTML={{
               __html: description,
             }}
-          ></S.Description>
+          />
         </S.DescriptionContainer>
         <MyNumbersButton />
         {data.loadRifa.status === "OPEN" ? (
