@@ -24,7 +24,7 @@ export const GiveawayPage = (data: Props) => {
           winnerNumber={data.loadRifa.winnerNumber}
           image={data.loadRifa.image}
         />
-        <ProgressiveBar />
+        {data.loadRifa.status === "OPEN" && <ProgressiveBar />}
         <S.DescriptionContainer>
           <S.DescriptionTitle>Descrição</S.DescriptionTitle>
           <S.Description
