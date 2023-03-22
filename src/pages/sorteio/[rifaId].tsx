@@ -5,11 +5,11 @@ import { initializeApollo } from "@/utils/apollo";
 import { LoadRifa } from "@/types/api";
 import Head from "next/head";
 
-type Props = {
+type RifaProps = {
   loadRifa: LoadRifa;
 };
 
-export default function Rifa(data: Props) {
+export default function Rifa(data: RifaProps) {
   return (
     <>
       <Head>
