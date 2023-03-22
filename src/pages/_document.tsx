@@ -8,7 +8,6 @@ import Document, {
   Main,
   NextScript,
 } from "next/document";
-import Script from "next/script";
 import { ServerStyleSheet } from "styled-components";
 
 export default class MyDocument extends Document {
@@ -73,7 +72,7 @@ export default class MyDocument extends Document {
             content="c5ji503c1wvzags27zzf6rvmorzh3r"
           />
 
-          <Script
+          <script
             dangerouslySetInnerHTML={{
               __html: `(function(h,o,t,j,a,r){
         h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
