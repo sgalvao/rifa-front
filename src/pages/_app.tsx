@@ -10,6 +10,7 @@ import Script from "next/script";
 import * as fbq from "@/utils/facebook-pixel";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 export default function App({
   Component,
   pageProps: { session, ...pageProps },
@@ -32,6 +33,12 @@ export default function App({
 
   return (
     <>
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+      </Head>
       <SessionProvider session={pageProps.session}>
         <CheckoutProvider>
           <ApolloProvider client={client}>
