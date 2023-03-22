@@ -63,6 +63,10 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap"
             rel="stylesheet"
           ></link>
+          <meta
+            name="facebook-domain-verification"
+            content="c5ji503c1wvzags27zzf6rvmorzh3r"
+          />
         </Head>
         <body>
           <noscript>
