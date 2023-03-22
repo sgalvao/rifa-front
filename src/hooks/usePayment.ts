@@ -6,6 +6,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import * as fbq from "@/utils/facebook-pixel";
 
 type RifaType = {
   id: string;
@@ -67,6 +68,7 @@ export const usePayment = ({ id, numberPrice }: RifaType) => {
     }
 
     setQuantity(value);
+    fbq.event("InitiateCheckout", { currency: "BRL", num_items: value });
 
     try {
       toast("🚀 Gerando Números... Aguarde!");

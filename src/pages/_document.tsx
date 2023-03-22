@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+import { FB_PIXEL_ID } from "@/utils/facebook-pixel";
 import Document, {
   DocumentContext,
   Html,
@@ -63,6 +65,15 @@ export default class MyDocument extends Document {
           ></link>
         </Head>
         <body>
+          <noscript>
+            <img
+              height="1"
+              width="1"
+              style={{ display: "none" }}
+              src={`https://www.facebook.com/tr?id=${FB_PIXEL_ID}&ev=PageView&noscript=1`}
+              alt="facebook pixel"
+            />
+          </noscript>
           <Main />
           <NextScript />
         </body>
