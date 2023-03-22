@@ -58,6 +58,7 @@ export const usePayment = ({ id, numberPrice }: RifaType) => {
     const values = {
       rifaId: id,
       quantity: value,
+      price: numberPrice,
     };
     sessionStorage.setItem("@checkout-cart", JSON.stringify(values));
     setRifaId(id);
@@ -68,7 +69,11 @@ export const usePayment = ({ id, numberPrice }: RifaType) => {
     }
 
     setQuantity(value);
-    fbq.event("InitiateCheckout", { currency: "BRL", num_items: value });
+    fbq.event("InitiateCheckout", {
+      currency: "BRL",
+      num_items: value,
+      value: value * numberPrice,
+    });
 
     try {
       toast("🚀 Gerando Números... Aguarde!");
@@ -81,7 +86,12 @@ export const usePayment = ({ id, numberPrice }: RifaType) => {
           session,
         },
       });
+      fbq.event("Purchase", {
+        currency: "BRL",
+        value: value * numberPrice,
+      });
       sessionStorage.removeItem("@checkout-cart");
+
       return route.push(
         `/checkout/${id}?paymentId=${response?.data?.createPayment.id}`
       );

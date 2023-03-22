@@ -9,6 +9,7 @@ import * as S from "./styles";
 type ItemProps = {
   rifaId: string;
   quantity: number;
+  price: number;
 };
 
 export const AuthForm = () => {

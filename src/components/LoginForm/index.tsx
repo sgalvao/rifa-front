@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 import { CREATE_PAYMENT } from "@/GraphQL/Mutations/payment";
 import { useMutation } from "@apollo/client";
 import { toast } from "react-toastify";
+import * as fbq from "@/utils/facebook-pixel";
 
 interface FormValues {
   phone: string;
@@ -29,6 +30,7 @@ type Props = {
   cart?: {
     quantity: number;
     rifaId: string;
+    price: number;
   };
 };
 
@@ -43,6 +45,12 @@ export const LoginForm = ({ setAccountError, setPhone, cart }: Props) => {
 
   useEffect(() => {
     const handlePayment = async () => {
+      if (cart) {
+        fbq.event("Purchase", {
+          currency: "BRL",
+          value: cart?.quantity * cart?.price,
+        });
+      }
       try {
         toast("🚀 Gerando Números... Aguarde!");
         const response = await createPayment({
