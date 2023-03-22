@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/next-script-for-ga */
 /* eslint-disable @next/next/inline-script-id */
 /* eslint-disable @next/next/no-img-element */
 import { FB_PIXEL_ID } from "@/utils/facebook-pixel";
@@ -70,6 +71,20 @@ export default class MyDocument extends Document {
           <meta
             name="facebook-domain-verification"
             content="c5ji503c1wvzags27zzf6rvmorzh3r"
+          />
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-HGE9QGPR9G"
+          ></script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HGE9QGPR9G');
+`,
+            }}
           />
 
           <script
