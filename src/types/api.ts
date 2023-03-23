@@ -36,3 +36,24 @@ export type WinnerProps = {
 export type WinnersProps = {
   loadWinners: WinnerProps[];
 };
+
+export enum StatusEnum {
+  approved,
+  expired,
+  pending,
+}
+
+export const StatusType = {
+  pending: {
+    color: "#4f90ff",
+    label: "Aguardando Pagamento...",
+  },
+  expired: {
+    color: "#C70039",
+    label: "Pagamento não foi confirmado!",
+  },
+  approved: {
+    color: "#24B602",
+    label: "✨Pagamento aprovado com sucesso!✨",
+  },
+};

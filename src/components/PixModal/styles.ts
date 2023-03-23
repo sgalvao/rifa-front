@@ -65,6 +65,11 @@ export const Description = styled.span`
   font-family: "Poppins", sans-serif;
   text-align: center;
   color: rgba(0, 0, 0, 0.5);
+  font-size: 1.4rem;
+
+  strong {
+    color: #fcbc51;
+  }
 `;
 
 export const Input = styled.input`
@@ -93,4 +98,10 @@ export const CopyButton = styled.button`
   background-color: #47b3ea;
   font-size: 1.3rem;
   font-family: "Poppins", sans-serif;
+  transition: 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #176b96;
+  }
 `;

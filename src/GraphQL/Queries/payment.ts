@@ -13,10 +13,10 @@ export const LOAD_PAYMENT_BY_ID = gql`
       value
       transactionId
       createdAt
+      status
     }
   }
 `;
-
 
 export const LOAD_PURCHASED_NUMBERS = gql`
   query LoadPurchasedNumbers {

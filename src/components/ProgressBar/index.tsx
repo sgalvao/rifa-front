@@ -1,11 +1,10 @@
 import * as S from "./styles";
 
 type ProgressProps = {
-  soldPercent: number;
+  percent: number;
 };
 
-export const ProgressiveBar = () => {
-  const percent = 63;
+export const ProgressiveBar = ({ percent }: ProgressProps) => {
   return (
     <S.Container>
       <S.Title>COTAS VENDIDAS </S.Title>
