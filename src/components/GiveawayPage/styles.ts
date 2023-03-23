@@ -20,6 +20,17 @@ export const FinishedContainer = styled.div`
   padding: 1rem;
 `;
 
+export const Info = styled.span`
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.4);
+
+  strong {
+    color: #f7cd6e;
+  }
+`;
+
 export const WinnerName = styled.h1`
   font-family: "Poppins", sans-serif;
   font-size: 1.4rem;

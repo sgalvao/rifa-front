@@ -87,7 +87,7 @@ export const Numbers = styled.p`
 export const Info = styled.p`
   font-family: "Poppins", sans-serif;
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.4rem;
   color: rgba(255, 255, 255, 0.4);
 
   strong {

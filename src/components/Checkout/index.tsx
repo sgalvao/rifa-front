@@ -33,10 +33,30 @@ const Checkout = (data: PaymentProps) => {
   return (
     <S.Container>
       <S.PaymentId>COMPRA #{data.loadPaymentById.transactionId}</S.PaymentId>
+      <S.Info>
+        Você esta comprando{" "}
+        <strong>{data.loadPaymentById.numbers.length} cotas</strong> no valor de{" "}
+        <strong>
+          {data.loadPaymentById.value.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          })}{" "}
+          cada
+        </strong>{" "}
+        totalizando o valor de{" "}
+        <strong>
+          {data.loadPaymentById.totalValue.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          })}
+        </strong>
+        !
+      </S.Info>
       <S.StatusCard>
         <FaReceipt size={28} color="#4f90ff" />
         Aguardando Pagamento...
       </S.StatusCard>
+
       <S.Info>
         O código ficará <strong>indisponível</strong> para pagamento{" "}
         <strong>após 10 minutos</strong> e os números selecionados voltaram a
