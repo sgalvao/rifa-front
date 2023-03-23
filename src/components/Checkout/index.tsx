@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import * as S from "./styles";
 import pixLogo from "../../../public/img/pix-logo.svg";
-import { FaReceipt } from "react-icons/fa";
+import { FaReceipt, FaTelegramPlane } from "react-icons/fa";
 import { useState } from "react";
 import { PixModal } from "../PixModal";
 import { format } from "date-fns";
@@ -86,6 +86,13 @@ const Checkout = (data: PaymentProps) => {
         onClose={() => setIsOpen(false)}
         pixCode={data.loadPaymentById.copyPasteCode}
       />
+      <S.Button
+        href="https://t.me/sortediariapremios"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <FaTelegramPlane size={22} /> Entrar no grupo
+      </S.Button>
     </S.Container>
   );
 };

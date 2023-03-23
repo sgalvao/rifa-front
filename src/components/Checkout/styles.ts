@@ -142,3 +142,29 @@ export const PixCard = styled.div<Props>`
   border-radius: 0 0 1rem 1rem;
   width: 100%;
 `;
+
+export const Button = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem 0;
+  font-size: 1.8rem;
+  font-family: "Poppins", sans-serif;
+  color: #f8f8f8;
+  font-weight: bold;
+  background-color: #c06014;
+  margin: 3rem;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  svg {
+    margin-right: 0.5rem;
+  }
+  transition: 0.2s all ease;
+
+  &:hover {
+    background-color: #ad450d;
+  }
+`;
