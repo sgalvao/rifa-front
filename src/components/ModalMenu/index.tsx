@@ -9,6 +9,7 @@ import { FaTelegramPlane } from "react-icons/fa";
 import * as S from "./styles";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { FiHome } from "react-icons/fi";
 
 interface ModalProps {
   setClose: () => void;
@@ -31,6 +32,9 @@ export const ModalMenu = ({ setClose, open }: ModalProps) => {
           </S.CloseButton>
         </S.Wrapper>
         <S.OptionsList>
+          <S.Item onClick={() => router.push("/")}>
+            <FiHome /> Voltar aos prêmios
+          </S.Item>
           <S.Item onClick={() => router.push("/myNumbers")}>
             <GiClover /> Meus Números
           </S.Item>

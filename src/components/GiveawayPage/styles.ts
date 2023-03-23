@@ -48,6 +48,7 @@ export const DescriptionContainer = styled.div`
   padding: 1rem;
   max-height: 18rem;
   overflow-y: scroll;
+  margin-bottom: 2rem;
 `;
 
 export const Description = styled.p`

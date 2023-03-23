@@ -13,6 +13,11 @@ type Props = {
 
 export const GiveawayPage = (data: Props) => {
   const description = data.loadRifa.description.replace(/\\n/g, "<br>");
+
+  const handleScrollBottom = () => {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+  };
+
   return (
     <Base>
       <S.Container>
@@ -23,7 +28,9 @@ export const GiveawayPage = (data: Props) => {
           status={data.loadRifa.status}
           winnerNumber={data.loadRifa.winnerNumber}
           image={data.loadRifa.image}
+          onClick={handleScrollBottom}
         />
+        <MyNumbersButton />
         {data.loadRifa.status === "OPEN" && <ProgressiveBar percent={63} />}
         <S.DescriptionContainer>
           <S.DescriptionTitle>Descrição</S.DescriptionTitle>
@@ -33,7 +40,6 @@ export const GiveawayPage = (data: Props) => {
             }}
           />
         </S.DescriptionContainer>
-        <MyNumbersButton />
         {data.loadRifa.status === "OPEN" ? (
           <BuyNumbers id={data.loadRifa.id} numberPrice={data.loadRifa.price} />
         ) : (

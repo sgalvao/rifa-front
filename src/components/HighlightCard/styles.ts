@@ -15,6 +15,7 @@ export const Container = styled.div`
   background: rgba(66, 70, 66, 0.7);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   margin-bottom: 1rem;
+  cursor: pointer;
 `;
 
 export const RifaImage = styled.div<Props>`
