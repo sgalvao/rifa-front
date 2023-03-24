@@ -167,4 +167,5 @@ export const Button = styled.a`
   &:hover {
     background-color: #ad450d;
   }
+  cursor: pointer;
 `;

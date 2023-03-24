@@ -5,6 +5,7 @@ import { FaReceipt, FaTelegramPlane } from "react-icons/fa";
 import { useState } from "react";
 import { PixModal } from "../PixModal";
 import { format } from "date-fns";
+import Countdown from "../Countdown";
 
 export type PaymentProps = {
   loadPaymentById: {
@@ -25,9 +26,14 @@ export type PaymentProps = {
 
 const Checkout = (data: PaymentProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isExpired, setIsExpired] = useState(false);
 
   const handleOpen = () => {
     return setIsOpen(true);
+  };
+
+  const handleExpire = () => {
+    setIsExpired(true);
   };
 
   return (
@@ -56,6 +62,11 @@ const Checkout = (data: PaymentProps) => {
         <FaReceipt size={28} color="#4f90ff" />
         Aguardando Pagamento...
       </S.StatusCard>
+
+      <Countdown
+        startTime={new Date(data.loadPaymentById.createdAt)}
+        handleEnd={handleExpire}
+      />
 
       <S.Info>
         O código ficará <strong>indisponível</strong> para pagamento{" "}
@@ -97,10 +108,12 @@ const Checkout = (data: PaymentProps) => {
             .replace(" ", "")}
         </S.TotalValue>
       </S.Wrapper>
-      <S.PixContainer onClick={handleOpen}>
-        <S.PixButton>Clique aqui para pagar com</S.PixButton>
-        <S.PixCard url={pixLogo}></S.PixCard>
-      </S.PixContainer>
+      {!isExpired && (
+        <S.PixContainer onClick={handleOpen}>
+          <S.PixButton>Clique aqui para pagar com</S.PixButton>
+          <S.PixCard url={pixLogo}></S.PixCard>
+        </S.PixContainer>
+      )}
       <PixModal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
