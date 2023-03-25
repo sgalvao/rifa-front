@@ -13,6 +13,9 @@ type Props = {
 export const PixModal = ({ pixCode, isOpen, onClose }: Props) => {
   const handleCopy = () => {
     navigator.clipboard.writeText(pixCode);
+    alert(
+      "Codigo pix copiado! realize o pagamento através do aplicativo de seu banco"
+    );
     toast.info("Código PIX copiado para area de transferência");
   };
 

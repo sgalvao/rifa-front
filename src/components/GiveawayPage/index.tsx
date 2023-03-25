@@ -31,11 +31,11 @@ export const GiveawayPage = (data: Props) => {
           onClick={handleScrollBottom}
         />
         {/* <MyNumbersButton /> */}
+        {data.loadRifa.status === "OPEN" && <ProgressiveBar percent={68} />}
         <S.Info>
           Após a <strong>realização do pagamento</strong> verifique seus numeros
           na aba <strong>Meus números</strong> no menu do site!
         </S.Info>
-        {data.loadRifa.status === "OPEN" && <ProgressiveBar percent={68} />}
         <S.DescriptionContainer>
           <S.DescriptionTitle>Descrição</S.DescriptionTitle>
           <S.Description
