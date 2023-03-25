@@ -18,7 +18,7 @@ export const IncrementInput = ({
 }: Props) => {
   return (
     <S.Container>
-      <S.Button onClick={handleDecrement} disabled={value === 5}>
+      <S.Button onClick={handleDecrement} disabled={value === 2}>
         <SlMinus size={24} />
       </S.Button>
       <S.Input value={value} disabled />

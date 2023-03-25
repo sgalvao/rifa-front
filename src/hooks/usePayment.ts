@@ -14,7 +14,7 @@ type RifaType = {
 };
 
 export const usePayment = ({ id, numberPrice }: RifaType) => {
-  const [value, setValue] = useState(5);
+  const [value, setValue] = useState(2);
   const [price, setPrice] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -33,8 +33,7 @@ export const usePayment = ({ id, numberPrice }: RifaType) => {
   }, [value]);
 
   const handleDecrement = () => {
-    if (value > 5) {
-      console.log("teste", value);
+    if (value > 2) {
       return setValue((current: number) => current - 1);
     }
   };
