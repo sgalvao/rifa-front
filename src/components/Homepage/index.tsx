@@ -8,7 +8,7 @@ import { LoadRifas } from "@/types/api";
 import { useRouter } from "next/router";
 
 const Homepage = ({ loadRifas }: LoadRifas) => {
-  const rifaList = loadRifas.splice(0, 1);
+  const rifaList = loadRifas.slice(0);
   const router = useRouter();
   return (
     <Base>
