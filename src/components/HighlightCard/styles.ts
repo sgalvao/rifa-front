@@ -9,36 +9,36 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1rem;
+  padding: 0.8rem 1.5rem;
   width: 100%;
-  border-radius: 1.2rem;
-  background: rgba(66, 70, 66, 0.7);
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 1.8rem;
   margin-bottom: 1rem;
+  background-color: #fff;
   cursor: pointer;
+  border: 1px solid rgba(193, 127, 4, 0.2);
 `;
 
 export const RifaImage = styled.div<Props>`
   width: 100%;
-  height: 20rem;
+  height: 26.4rem;
   background-image: ${({ url }) => `url(${url})`};
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  border-radius: 1.2rem;
+  border-radius: 1.9rem;
+  align-self: center;
 `;
 
 export const Wrapper = styled.div`
   display: flex;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
-  padding: 1rem 1rem;
+  padding: 0.6rem 2rem;
 `;
 
 export const Name = styled.p`
   font-family: "Poppins", sans-serif;
-  color: #f3f4ed;
+  color: #000;
   font-size: 1.2rem;
 `;
 
@@ -75,10 +75,8 @@ export const Status = styled.div<Props>`
 `;
 
 export const Price = styled.p`
-  color: #f3f4ed;
-  font-weight: 300;
+  color: #f29d38;
+  font-weight: bold;
   font-family: "Poppins", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 `;
-
-export const Button = styled.button``;

@@ -15,16 +15,16 @@ export const Form = styled.form`
     font-weight: bold;
     padding: 0.6rem;
     background-color: transparent;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(0, 0, 0, 0.8);
     &::placeholder {
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(0, 0, 0, 0.5);
 
       font-family: "Poppins", sans-serif;
     }
     outline: none;
     border-radius: 0.5rem;
     border: none;
-    border: 0.1rem solid ${"rgb(83, 97, 98)"};
+    background: #fff;
   }
 `;
 
@@ -36,16 +36,15 @@ export const Input = styled.input`
   font-weight: bold;
   padding: 0.6rem;
   background-color: transparent;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.8);
   &::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(0, 0, 0, 0.5);
 
     font-family: "Poppins", sans-serif;
   }
   outline: none;
   border-radius: 0.5rem;
   border: none;
-  border: 0.1rem solid ${"rgb(83, 97, 98)"};
 `;
 
 export const Spinner = styled.div`
@@ -68,10 +67,11 @@ export const Spinner = styled.div`
 export const Label = styled.div`
   display: flex;
   align-items: center;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  font-weight: 600;
   font-family: "Poppins", sans-serif;
-  color: #f8f8f8;
-
+  color: rgba(0, 0, 0, 0.6);
+  margin-top: 0.4rem;
   p {
     font-size: 0.9rem;
     font-family: "Poppins", sans-serif;

@@ -11,7 +11,7 @@ export const AddMoreButton = ({ value, popular, onClick }: Props) => {
     <S.Container>
       {popular && <S.PopularCard>Recomendado </S.PopularCard>}
       <S.AddMoreCard onClick={onClick} popular={popular}>
-        +{value} Selecionar
+        + {value} Selecionar
       </S.AddMoreCard>
     </S.Container>
   );

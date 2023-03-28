@@ -1,6 +1,15 @@
+import { MenuContext } from "@/context/MenuProvider";
+import { MenuType } from "@/types/api";
+import { useContext, useEffect } from "react";
 import * as S from "./styles";
 
 const About = () => {
+  const { handleSet } = useContext(MenuContext);
+
+  useEffect(() => {
+    handleSet(MenuType.about);
+  });
+
   return (
     <S.Container>
       <S.Title>Sobre as Ações</S.Title>

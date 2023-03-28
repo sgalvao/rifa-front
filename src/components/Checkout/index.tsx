@@ -59,14 +59,13 @@ const Checkout = (data: PaymentProps) => {
         !
       </S.Info>
       <S.StatusCard>
-        <FaReceipt size={28} color="#4f90ff" />
+        <FaReceipt size={28} color="#edc740" />
         Aguardando Pagamento...
+        <Countdown
+          startTime={new Date(data.loadPaymentById.createdAt)}
+          handleEnd={handleExpire}
+        />
       </S.StatusCard>
-
-      <Countdown
-        startTime={new Date(data.loadPaymentById.createdAt)}
-        handleEnd={handleExpire}
-      />
 
       <S.Info>
         O código ficará <strong>indisponível</strong> para pagamento{" "}

@@ -15,17 +15,11 @@ const Header = () => {
 
   return (
     <S.Container>
-      <S.Wrapper>
-        <S.Logo onClick={() => route.push("/")}>
-          <S.Image src={"/img/logo.png"} />
-        </S.Logo>
-        <S.Divider />
-        <S.Title>Prêmios diários</S.Title>
-      </S.Wrapper>
-      <S.MenuButton onClick={handleOpen}>
-        <FiMenu size={28} color={"#F3F4ED"} />
-      </S.MenuButton>
-      <ModalMenu open={open} setClose={() => setOpen(false)} />
+      <S.Logo onClick={() => route.push("/")}>
+        <S.Image src={"/img/logo.png"} />
+      </S.Logo>
+      <S.Divider />
+      <S.Title>Maquina de Prêmios</S.Title>
     </S.Container>
   );
 };

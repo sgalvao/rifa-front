@@ -13,10 +13,11 @@ export const Input = styled.input`
   border: none;
   border-radius: 1rem;
   font-family: "Poppins", sans-serif;
+  font-weight: bold;
   font-size: 1.8rem;
   text-align: center;
   margin: 1rem 0;
-  color: #f3f4ed;
+  color: #7a4f27;
 `;
 
 export const Button = styled.button`

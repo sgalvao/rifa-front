@@ -16,16 +16,16 @@ export const WinnerCard = ({
 
   return (
     <S.Container onClick={() => router.push(`sorteio/${rifaId}`)}>
-      <S.Image src={rifaImage} />
+      <S.Image url={rifaImage} />
       <S.Wrapper>
-        <S.Name>{winnerName}</S.Name>
         <S.Rifa>{rifaName}</S.Rifa>
+        <S.Name>{winnerName}</S.Name>
+        <S.Number>
+          Numero vencedor: <p>{winnerNumber}</p>
+        </S.Number>
         <S.Date>
           Data do resultado: {format(new Date(createdAt), "dd/MM/yy")}
         </S.Date>
-        <S.Number>
-          Cota: <p>{winnerNumber}</p>
-        </S.Number>
       </S.Wrapper>
     </S.Container>
   );

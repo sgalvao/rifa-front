@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  gap: 1rem;
 `;
 
 export const Title = styled.h1`
   font-family: "Poppins", sans-serif;
-  color: #f3f4ed;
-  margin-bottom: 1rem;
+  color: #000;
+  font-weight: 300;
+  font-size: 2.8rem;
   svg {
     fill: #c06014;
   }
@@ -18,8 +21,8 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  background: #536162;
   border-radius: 1rem;
+  background-color: #f8f8f8;
   padding: 1rem;
 `;
 

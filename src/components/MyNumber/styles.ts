@@ -8,24 +8,22 @@ export const Container = styled.div`
   svg {
     width: 26rem;
     height: 26rem;
-    opacity: 0.6;
+    opacity: 0.8;
   }
 `;
 
 export const Info = styled.span`
   font-family: "Poppins", sans-serif;
   font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 0.5);
   text-align: center;
 
   strong {
-  color: #f7cd6e;
-
+    color: #f7cd6e;
   }
-
 `;
 
 export const Title = styled.h1`
-  color: #f8f8f8;
+  color: rgba(0, 0, 0, 0.8);
   font-family: "Poppins", sans-serif;
 `;

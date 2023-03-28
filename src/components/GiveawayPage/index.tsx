@@ -1,11 +1,10 @@
-import { Base } from "@/templates/Base";
 import { LoadRifa } from "@/types/api";
 import { BuyNumbers } from "../BuyNumbers";
-import { HighlightCard } from "../HighlightCard";
-import { MyNumbersButton } from "../MyNumbersButton";
 import * as S from "./styles";
 import { format } from "date-fns";
 import { ProgressiveBar } from "../ProgressBar";
+import { HiOutlineArrowLeft } from "react-icons/hi2";
+import { useRouter } from "next/router";
 
 type Props = {
   loadRifa: LoadRifa;
@@ -18,47 +17,53 @@ export const GiveawayPage = (data: Props) => {
     window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
   };
 
+  const router = useRouter();
+
   return (
-    <Base>
-      <S.Container>
-        <HighlightCard
-          id={data.loadRifa.id}
-          name={data.loadRifa.name}
-          price={data.loadRifa.price}
-          status={data.loadRifa.status}
-          winnerNumber={data.loadRifa.winnerNumber}
-          image={data.loadRifa.image}
-          onClick={handleScrollBottom}
+    <S.Container>
+      <S.ImageContainer url={data.loadRifa.image}>
+        <S.ReturnButton onClick={() => router.push("/")}>
+          <HiOutlineArrowLeft size={25} color={"#000"} />{" "}
+        </S.ReturnButton>
+      </S.ImageContainer>
+      <S.RifaContent>
+        <S.Title>{data.loadRifa.name}</S.Title>
+        <S.Price>
+          {" "}
+          {data.loadRifa.price.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          })}
+        </S.Price>
+      </S.RifaContent>
+      {data.loadRifa.status === "OPEN" && <ProgressiveBar percent={71} />}
+      <S.Info>
+        Após a <strong>realização do pagamento</strong> verifique seus números
+        na aba <strong>Meus números</strong> no menu do site!
+      </S.Info>
+      <S.DescriptionContainer>
+        <S.DescriptionTitle>Descrição</S.DescriptionTitle>
+        <S.Description
+          dangerouslySetInnerHTML={{
+            __html: description,
+          }}
         />
-        {/* <MyNumbersButton /> */}
-        {data.loadRifa.status === "OPEN" && <ProgressiveBar percent={68} />}
-        <S.Info>
-          Após a <strong>realização do pagamento</strong> verifique seus numeros
-          na aba <strong>Meus números</strong> no menu do site!
-        </S.Info>
-        <S.DescriptionContainer>
-          <S.DescriptionTitle>Descrição</S.DescriptionTitle>
-          <S.Description
-            dangerouslySetInnerHTML={{
-              __html: description,
-            }}
-          />
-        </S.DescriptionContainer>
-        {data.loadRifa.status === "OPEN" ? (
-          <BuyNumbers id={data.loadRifa.id} numberPrice={data.loadRifa.price} />
-        ) : (
-          <S.FinishedContainer>
-            <S.WinnerName>Ganhador: {data.loadRifa.winnerName}</S.WinnerName>
-            <S.WinnerNumber>
-              Numero sorteado: {data.loadRifa.winnerNumber}
-            </S.WinnerNumber>
-            <S.Date>
-              Data do resultado:{" "}
-              {format(new Date(data.loadRifa.finishedDate), "dd/MM/yyyy")}
-            </S.Date>
-          </S.FinishedContainer>
-        )}
-      </S.Container>
-    </Base>
+      </S.DescriptionContainer>
+
+      {data.loadRifa.status === "OPEN" ? (
+        <BuyNumbers id={data.loadRifa.id} numberPrice={data.loadRifa.price} />
+      ) : (
+        <S.FinishedContainer>
+          <S.WinnerName>Ganhador: {data.loadRifa.winnerName}</S.WinnerName>
+          <S.WinnerNumber>
+            Numero sorteado: {data.loadRifa.winnerNumber}
+          </S.WinnerNumber>
+          <S.Date>
+            Data do resultado:{" "}
+            {format(new Date(data.loadRifa.finishedDate), "dd/MM/yyyy")}
+          </S.Date>
+        </S.FinishedContainer>
+      )}
+    </S.Container>
   );
 };

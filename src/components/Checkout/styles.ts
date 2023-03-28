@@ -9,13 +9,16 @@ export const Container = styled.div`
   position: relative;
   flex-direction: column;
   justify-content: center;
-  padding: 0 1rem;
+  padding: 1rem;
+  background-color: #f8f8f8;
+  border-radius: 1rem;
 `;
 
 export const PaymentId = styled.h1`
   font-family: "Poppins", sans-serif;
-  color: #f8f8f8;
-  font-weight: 100;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 300;
+  margin: 2rem 0;
 `;
 
 export const StatusCard = styled.div`
@@ -23,12 +26,12 @@ export const StatusCard = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px dashed #4f90ff;
+  border: 1px dashed #edc740;
   padding: 1rem;
   width: 100%;
-  color: #f8f8f8;
+  color: #999999;
   font-family: "Poppins", sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   border-radius: 1rem;
   margin: 1rem 0;
 
@@ -53,7 +56,8 @@ export const Title = styled.h1`
 `;
 
 export const Date = styled.p`
-  color: #f8f8f8;
+  color: rgba(0, 0, 0, 0.6);
+
   font-size: 1.2rem;
   font-family: "Poppins", sans-serif;
 `;
@@ -63,12 +67,13 @@ export const Status = styled.div`
   font-family: "Poppins", sans-serif;
   color: #f7cd6e;
   strong {
-    color: #f8f8f8;
+    color: rgba(0, 0, 0, 0.6);
   }
 `;
 
 export const Quantity = styled.p`
-  color: #f8f8f8;
+  color: rgba(0, 0, 0, 0.6);
+
   font-size: 1.2rem;
   font-family: "Poppins", sans-serif;
 `;
@@ -80,7 +85,7 @@ export const Numbers = styled.p`
   color: #f7cd6e;
 
   strong {
-    color: #f8f8f8;
+    color: rgba(0, 0, 0, 0.6);
   }
 `;
 
@@ -88,7 +93,7 @@ export const Info = styled.p`
   font-family: "Poppins", sans-serif;
   text-align: center;
   font-size: 1.4rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(0, 0, 0, 0.6);
 
   strong {
     color: #f7cd6e;
@@ -96,13 +101,13 @@ export const Info = styled.p`
 `;
 
 export const Value = styled.p`
-  color: #f8f8f8;
+  color: #000;
   font-size: 1.2rem;
   font-family: "Poppins", sans-serif;
 `;
 
 export const TotalValue = styled.p`
-  color: #f8f8f8;
+  color: #000;
   font-size: 1.2rem;
   font-family: "Poppins", sans-serif;
 `;
@@ -133,7 +138,7 @@ export const PixButton = styled.div`
 export const PixCard = styled.div<Props>`
   justify-content: center;
   align-items: center;
-  background-color: #f8f8f8;
+  background-color: #ffff;
   background-image: url("/img/pix-logo.svg");
   background-size: 9rem;
   background-position: center;

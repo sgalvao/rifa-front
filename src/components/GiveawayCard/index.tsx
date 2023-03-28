@@ -22,21 +22,20 @@ export const GiveAwayCard = ({
 
   return (
     <S.Container onClick={() => router.push(`/sorteio/${id}`)}>
-      <S.CardImage src={image} width={80} height={80} />
+      <S.CardImage url={image} />
+      <S.Status status={status}>
+        {status === "OPEN" ? "Adquira já!" : "Finalizado!"}
+      </S.Status>
       <S.Wrapper>
         <S.Info>
           <S.Title>{name}</S.Title>
           <S.Price>
-            Por Apenas{" "}
             {price.toLocaleString("pt-BR", {
               style: "currency",
               currency: "BRL",
             })}
           </S.Price>
         </S.Info>
-        <S.Status status={status}>
-          {status === "OPEN" ? "Adquira já!" : "Finalizado!"}
-        </S.Status>
       </S.Wrapper>
     </S.Container>
   );

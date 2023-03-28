@@ -30,7 +30,6 @@ export const MyNumberCard = ({
             </S.Number>
           ))}
         </S.NumberContainer>
-        <S.Status status={status}>Em andamento!</S.Status>
       </S.Wrapper>
     </S.Container>
   );

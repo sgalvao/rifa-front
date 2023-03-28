@@ -4,14 +4,15 @@ import * as S from "./styles";
 
 type Props = {
   children: React.ReactNode;
+  noFooter?: boolean;
 };
 
-export const Base = ({ children }: Props) => {
+export const Base = ({ children, noFooter }: Props) => {
   return (
     <S.Container>
       <Header />
       {children}
-      <Footer />
+      {!noFooter && <Footer />}
     </S.Container>
   );
 };

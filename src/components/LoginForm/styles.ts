@@ -5,26 +5,27 @@ export const Form = styled.form`
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  padding: 1rem;
+  padding: 2rem;
+
+  background-color: #f8f8f8;
 
   input {
     width: 100%;
-    height: ${"3.4rem"};
+    height: 3.4rem;
     font-family: "Roboto", sans-serif;
     font-size: 1.5rem;
     font-weight: bold;
     padding: 0.6rem;
-    background-color: transparent;
-    color: rgba(255, 255, 255, 0.8);
+    background-color: #fff;
+    color: #000;
     &::placeholder {
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(0, 0, 0, 0.5);
 
       font-family: "Poppins", sans-serif;
     }
     outline: none;
     border-radius: 0.5rem;
     border: none;
-    border: 0.1rem solid ${"rgb(83, 97, 98)"};
   }
 `;
 
@@ -46,9 +47,10 @@ export const Spinner = styled.div`
 `;
 
 export const Label = styled.p`
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-family: "Poppins", sans-serif;
-  color: #f8f8f8;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.3);
 `;
 
 export const Button = styled.button`

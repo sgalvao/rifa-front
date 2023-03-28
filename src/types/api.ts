@@ -57,3 +57,17 @@ export const StatusType = {
     label: "✨Pagamento aprovado com sucesso!✨",
   },
 };
+
+export enum MenuEnum {
+  home,
+  about,
+  numbers,
+  winners,
+}
+
+export const MenuType = {
+  home: "home",
+  about: "about",
+  numbers: "numbers",
+  winners: "winners",
+};

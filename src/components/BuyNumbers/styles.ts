@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  margin: 0 1rem;
 `;
 
 export const Grid = styled.div`
@@ -22,7 +23,7 @@ export const Price = styled.button`
   font-family: "Inter", sans-serif;
   font-size: 1.4rem;
   padding: 1rem;
-  border-radius: 1rem;
+  border-radius: 0.6rem;
   color: #f8f8f8;
   cursor: pointer;
   font-weight: 800;

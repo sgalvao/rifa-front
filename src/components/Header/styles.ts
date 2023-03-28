@@ -7,24 +7,20 @@ type Props = {
 
 export const Container = styled.div`
   display: flex;
-  max-width: 130rem;
-  width: 100%;
+  width: 100vw;
   max-height: 16rem;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem 1rem 0 0;
-`;
-
-export const Wrapper = styled.div`
-  display: flex;
-  width: 100%;
-  align-items: center;
+  background-color: #000;
 `;
 
 export const Logo = styled.div``;
 
 export const Image = styled.img<any>`
-  max-width: 15rem;
+  max-width: 8.7rem;
+  height: 8.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Divider = styled.div`
@@ -32,12 +28,10 @@ export const Divider = styled.div`
   height: 2rem;
   margin-right: 1.2rem;
   background-color: rgb(243, 244, 237, 0.3);
-  ${media.lessThan("medium")`
-    `}
 `;
 
 export const Title = styled.h1`
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: rgb(243, 244, 237, 0.6);
   font-family: "Poppins", sans-serif;
   font-weight: 100;

@@ -1,9 +1,15 @@
-import { WinnersProps } from "@/types/api";
+import { MenuContext } from "@/context/MenuProvider";
+import { MenuType, WinnersProps } from "@/types/api";
+import { useContext, useEffect } from "react";
 import { WinnerCard } from "../WinnerCard";
 import * as S from "./styles";
 
 export const WinnersPage = (data: WinnersProps) => {
-  console.log(data);
+  const { handleSet } = useContext(MenuContext);
+
+  useEffect(() => {
+    handleSet(MenuType.winners);
+  });
 
   return (
     <S.Container>

@@ -2,6 +2,7 @@ import { CheckoutContext } from "@/context/CheckoutProvider";
 import { Alert, AlertTitle } from "@mui/material";
 import { useSession } from "next-auth/react";
 import { useState, useContext, useEffect } from "react";
+import { BsInfoCircle } from "react-icons/bs";
 import { LoginForm } from "../LoginForm";
 import { SignUpForm } from "../SignUpForm";
 import * as S from "./styles";
@@ -25,25 +26,27 @@ export const AuthForm = () => {
   }, []);
 
   return (
-    <S.Container>
-      <S.Title>{checkoutItem ? "Finalizar Pedido" : "Conectar-se"}</S.Title>
+    <S.Content>
+      <S.Container>
+        <S.Title>{checkoutItem ? "Finalizar Pedido" : "Conectar-se"}</S.Title>
+
+        {!invalidAccount ? (
+          <LoginForm
+            setAccountError={setInvalidAccount}
+            setPhone={setPhone}
+            cart={checkoutItem}
+          />
+        ) : (
+          <SignUpForm phone={phone} cart={checkoutItem} />
+        )}
+      </S.Container>
       {checkoutItem && (
-        <Alert severity="info" color="success">
-          <AlertTitle>
-            Você está comprando {checkoutItem?.quantity} cotas. Caso Tenha
-            Alguma dúvida você pode entrar em contato.
-          </AlertTitle>
-        </Alert>
+        <S.Alert>
+          <BsInfoCircle size={30} color={"#24B602"} /> Você está comprando{" "}
+          {checkoutItem?.quantity} cotas. Caso Tenha Alguma dúvida você pode
+          entrar em contato.
+        </S.Alert>
       )}
-      {!invalidAccount ? (
-        <LoginForm
-          setAccountError={setInvalidAccount}
-          setPhone={setPhone}
-          cart={checkoutItem}
-        />
-      ) : (
-        <SignUpForm phone={phone} cart={checkoutItem} />
-      )}
-    </S.Container>
+    </S.Content>
   );
 };

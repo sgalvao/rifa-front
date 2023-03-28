@@ -7,18 +7,19 @@ export const Container = styled.div`
   padding: 0 1rem;
   border-radius: 1rem;
   border: 2px dashed #c06014;
+  margin: 1rem;
 `;
 
 export const Title = styled.h1`
   font-size: 2.6rem;
-  color: #f8f8f8;
+  color: #000;
   font-family: "Poppins", sans-serif;
   font-weight: 200;
 `;
 
 export const SubTitle = styled.h2`
   font-size: 2.2rem;
-  color: #f8f8f8;
+  color: #000;
   font-family: "Poppins", sans-serif;
   font-weight: 200;
 `;
@@ -31,7 +32,7 @@ export const RuleList = styled.ul`
 `;
 
 export const ListItem = styled.li`
-  color: #f8f8f8;
+  color: #000;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   margin: 1rem 0;
@@ -39,7 +40,7 @@ export const ListItem = styled.li`
 
 export const Text = styled.span`
   font-size: 1.2rem;
-  color: #f8f8f8;
+  color: #000;
   font-family: "Poppins", sans-serif;
   font-weight: 200;
   margin-bottom: 1rem;

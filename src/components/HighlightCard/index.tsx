@@ -25,7 +25,6 @@ export const HighlightCard = ({
       <S.Wrapper>
         <S.Name>{name}</S.Name>
         <S.Price>
-          Por apenas{" "}
           {price.toLocaleString("pt-BR", {
             style: "currency",
             currency: "BRL",

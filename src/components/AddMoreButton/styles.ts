@@ -13,19 +13,21 @@ export const AddMoreCard = styled.div<Props>`
   text-align: center;
   font-family: "Poppins", sans-serif;
   height: 8rem;
-  border: 2px solid rgba(192, 96, 20, 0.6);
+  border: 2px solid #ff650e;
   border-radius: 1rem;
-  color: rgba(243, 244, 237, 0.6);
+  color: #ff650e;
+  font-weight: bold;
 
   cursor: pointer;
 
   ${({ popular }) =>
     popular &&
     css`
-      border: 2px solid green;
+      border: 2px solid #c17f04;
       border-radius: 1rem;
-      color: rgba(83, 97, 98, 1);
-      background: rgba(243, 244, 237, 0.8);
+      color: #fff;
+      background: #ff650e;
+      font-weight: bold;
     `}
 `;
 
@@ -40,10 +42,10 @@ export const PopularCard = styled.div`
   padding: 0 1rem;
   position: absolute;
   top: -1rem;
-  border: 1px solid green;
+  border: 1px solid #ff630c;
   border-radius: 0.6rem;
   font-family: "Poppins", sans-serif;
   font-size: 1.4rem;
   color: rgba(243, 244, 237, 1);
-  background: green;
+  background: #fc9c66;
 `;

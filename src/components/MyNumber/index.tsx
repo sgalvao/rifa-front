@@ -1,3 +1,6 @@
+import { MenuContext } from "@/context/MenuProvider";
+import { MenuType } from "@/types/api";
+import { useContext, useEffect } from "react";
 import { MyNumberCard } from "../MyNumberCard";
 import { EmptyPage } from "../svg";
 import * as S from "./styles";
@@ -14,6 +17,12 @@ export type PurchasedListProps = {
 };
 
 export const MyNumber = (data: PurchasedListProps) => {
+  const { handleSet } = useContext(MenuContext);
+
+  useEffect(() => {
+    handleSet(MenuType.numbers);
+  });
+
   return (
     <S.Container>
       <S.Title>Meus Números</S.Title>

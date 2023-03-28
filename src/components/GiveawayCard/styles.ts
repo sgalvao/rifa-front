@@ -7,75 +7,57 @@ type Props = {
 
 export const Container = styled.div`
   display: flex;
+  position: relative;
+  flex-direction: column;
   padding: 1rem;
   width: 100%;
-  border-radius: 1.2rem;
-  padding: 1rem;
-  background: rgba(66, 70, 66, 0.7);
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  margin-bottom: 1rem;
 `;
 
-export const CardImage = styled(Image)<Props>`
-  width: 9rem;
-  height: 9rem;
-  border-radius: 1.2rem;
+export const CardImage = styled.div<Props>`
+  border-radius: 1.9rem;
+  background-image: ${({ url }) => `url(${url})`};
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 13.8rem;
+  height: 15.5rem;
 `;
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 1rem 1.2rem 0 1.2rem;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Info = styled.div`
   display: flex;
   flex-direction: column;
+  margin: 1rem 0;
 `;
 
 export const Title = styled.h3`
   font-family: "Poppins", sans-serif;
-  color: #f3f4ed;
-  font-size: 1.2rem;
+  color: #000;
+  font-size: 1rem;
 `;
 
 export const Price = styled.p`
-  color: #f3f4ed;
-  font-weight: 300;
+  color: #000;
+  font-weight: 800;
   font-family: "Poppins", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 `;
 
 export const Status = styled.div<any>`
   display: flex;
+  position: absolute;
   align-items: center;
   justify-content: center;
-  width: 7rem;
   color: #f8f8f8;
   font-size: 1rem;
   font-family: "Poppins", sans-serif;
   background: ${({ status }) => (status === "OPEN" ? "#c06014" : "#303240")};
   padding: 0.2rem 0.6rem;
   border-radius: 0.8rem;
-`;
-
-export const Button = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-self: center;
-  outline: none;
-  font-family: "Poppins", sans-serif;
-  font-size: 1.2rem;
-  color: rgba(49, 144, 59, 0.9);
-  border: 1px solid rgba(49, 144, 59, 0.9);
-  border-radius: 1rem;
-  padding: 0.5rem;
-
-  &:hover {
-    color: #f3f4ed;
-    border: 1px solid rgba(49, 144, 59, 0.9);
-    background: rgba(49, 144, 59, 0.9);
-  }
 `;

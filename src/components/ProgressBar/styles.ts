@@ -13,12 +13,12 @@ export const Title = styled.h1`
   font-family: "Poppins", sans-serif;
   font-size: 1.4rem;
   text-align: center;
-  color: #f8f8f8;
+  color: #999999;
 `;
 
 export const Bar = styled.div`
   padding: 6px;
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(248, 248, 248, 0.8);
   border-radius: 6px;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25),
     0 1px rgba(255, 255, 255, 0.08);
@@ -28,15 +28,15 @@ export const Progress = styled.div<Props>`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fcbc51;
+  background-color: #ff650e;
   width: ${({ soldPercent }) => soldPercent}%;
   background-image: linear-gradient(
     45deg,
-    rgb(252, 163, 17) 25%,
+    rgb(235, 139, 84) 25%,
     transparent 25%,
     transparent 50%,
-    rgb(252, 163, 17) 50%,
-    rgb(252, 163, 17) 75%,
+    rgb(235, 139, 84) 50%,
+    rgb(235, 139, 84) 75%,
     transparent 75%,
     transparent
   );

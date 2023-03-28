@@ -9,15 +9,15 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
+  transition: all 1s ease-in;
 `;
 
 export const Counter = styled.div<Props>`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #f8f8f8;
-  font-size: 1.8rem;
-  border: 2px dashed ${({ isDanger }) => (isDanger ? "#AD450D" : "#D9D610")};
+  color: #999999;
+  font-size: 2.4rem;
   border-radius: 1rem;
   padding: 0.4rem 2rem;
   font-weight: bold;
