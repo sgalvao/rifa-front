@@ -20,7 +20,11 @@ export const MyNumberCard = ({
 
   return (
     <S.Container onClick={() => router.push(`/sorteio/${rifaId}`)}>
-      <S.ImageContainer url={image} />
+      <S.ImageContainer url={image}>
+        <S.Status status={status}>
+          {status === "OPEN" ? "Em andamento!" : "Finalizado"}
+        </S.Status>
+      </S.ImageContainer>
       <S.Wrapper>
         <S.Name>{name}</S.Name>
         <S.NumberContainer>

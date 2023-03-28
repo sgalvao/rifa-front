@@ -15,6 +15,7 @@ export const Wrapper = styled.div`
 `;
 
 export const ImageContainer = styled.div<any>`
+  position: relative;
   width: 13.8rem;
   height: 15.5rem;
   background-image: ${({ url }) => `url(${url})`};
@@ -38,6 +39,9 @@ export const Name = styled.h2`
 `;
 
 export const Status = styled.div<any>`
+  position: absolute;
+  bottom: 0%;
+  right: 0;
   align-self: flex-end;
   color: #f8f8f8;
   font-family: "Poppins", sans-serif;
