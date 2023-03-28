@@ -19,7 +19,10 @@ const Header = () => {
         <S.Image src={"/img/logo.png"} />
       </S.Logo>
       <S.Divider />
-      <S.Title>Maquina de Prêmios</S.Title>
+      <S.Wrapper>
+        <S.Title>Maquina de Prêmios</S.Title>
+        <S.Subtitle>Concorra a prêmios diários</S.Subtitle>
+      </S.Wrapper>
     </S.Container>
   );
 };

@@ -9,32 +9,44 @@ export const Container = styled.div`
   display: flex;
   width: 100vw;
   max-height: 16rem;
-  align-items: center;
   background-color: #000;
+  align-items: center;
+  padding: 1rem;
 `;
 
 export const Logo = styled.div``;
 
 export const Image = styled.img<any>`
-  max-width: 8.7rem;
-  height: 8.7rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 6.8rem;
 `;
 
 export const Divider = styled.div`
   width: 1px;
-  height: 2rem;
-  margin-right: 1.2rem;
+  height: 4rem;
+  margin: 0 1.2rem;
   background-color: rgb(243, 244, 237, 0.3);
 `;
 
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const Title = styled.h1`
-  font-size: 1.6rem;
-  color: rgb(243, 244, 237, 0.6);
+  font-size: 1.8rem;
+  color: rgb(243, 244, 237, 0.8);
   font-family: "Poppins", sans-serif;
-  font-weight: 100;
+  font-weight: 300;
+`;
+
+export const Subtitle = styled.h3`
+  font-size: 1.4rem;
+  color: rgb(243, 244, 237, 0.5);
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
 `;
 
 export const Button = styled.button<Props>`
