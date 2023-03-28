@@ -25,9 +25,13 @@ export const GiveawayPage = (data: Props) => {
         <S.ReturnButton onClick={() => router.push("/")}>
           <HiOutlineArrowLeft size={25} color={"#000"} />{" "}
         </S.ReturnButton>
+        <S.Status status={data.loadRifa.status} onClick={handleScrollBottom}>
+          {data.loadRifa.status === "OPEN" ? "Adquira já!" : "Finalizado!"}
+        </S.Status>
       </S.ImageContainer>
       <S.RifaContent>
         <S.Title>{data.loadRifa.name}</S.Title>
+
         <S.Price>
           {" "}
           {data.loadRifa.price.toLocaleString("pt-BR", {

@@ -79,6 +79,7 @@ export const ImageContainer = styled.div<any>`
   width: 100%;
   height: 36.2rem;
   border-radius: 1.9rem;
+  position: relative;
 `;
 
 export const RifaContent = styled.div`
@@ -105,5 +106,29 @@ export const ReturnButton = styled.div`
   svg {
     width: 3rem;
     margin: 1rem 0;
+  }
+`;
+
+export const Status = styled.div<any>`
+  display: flex;
+  position: absolute;
+  bottom: 0px;
+  right: 33%;
+  left: 33%;
+  align-items: center;
+  justify-content: center;
+  color: #f8f8f8;
+  font-size: 1.4rem;
+  font-family: "Poppins", sans-serif;
+  background: ${({ status }) => (status === "OPEN" ? "green" : "#303240")};
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.8rem;
+  ${({ status }) =>
+    status === "OPEN" && "animation: 1.6s showIn linear infinite;"}
+
+  @keyframes showIn {
+    50% {
+      opacity: 0;
+    }
   }
 `;
