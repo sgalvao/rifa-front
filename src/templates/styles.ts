@@ -9,3 +9,7 @@ export const Container = styled.div`
   margin: 0 auto;
   padding: 0 1rem;
 `;
+
+export const Content = styled.div`
+  margin: 1rem 0 5rem 0;
+`;
