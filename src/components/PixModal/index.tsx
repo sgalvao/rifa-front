@@ -29,7 +29,8 @@ export const PixModal = ({ pixCode, isOpen, onClose }: Props) => {
         <S.Divider />
         <S.Description>
           Pix copia e cola: abra o <strong>aplicativo do seu banco</strong> pelo
-          celular, selecione <strong>PIX</strong> e faça o pagamento. Ou
+          celular, selecione <strong>pix COPIA E COLA</strong> e faça o
+          pagamento. Ou
           <strong> escaneie</strong> o código com um celular.
         </S.Description>
         <S.PixContainer>

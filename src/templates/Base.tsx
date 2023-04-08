@@ -1,7 +1,7 @@
 import { Footer } from "@/components/Footer";
 import Header from "@/components/Header";
 import * as S from "./styles";
-import { FaqCard } from "@/components/FaqCard";
+import { Tutorial } from "@/components/Tutorial";
 
 type Props = {
   children: React.ReactNode;
@@ -12,10 +12,8 @@ export const Base = ({ children, noFooter }: Props) => {
   return (
     <S.Container>
       <Header />
-      <S.Content>
-        {children}
-        {/* <FaqCard text="" question="Qual a data do sorteio?" /> */}
-      </S.Content>
+      <S.Content>{children}</S.Content>
+      {/* <Tutorial /> */}
       {!noFooter && <Footer />}
     </S.Container>
   );

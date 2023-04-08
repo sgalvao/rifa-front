@@ -59,6 +59,22 @@ export const DescriptionContainer = styled.div`
   border: 1px dashed #ff650e;
 `;
 
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 1rem;
+  margin: 1rem;
+  align-items: center;
+`;
+
+export const FaqTitle = styled.h2`
+  color: #ff650e;
+  font-family: "Poppins", sans-serif;
+  font-size: 2rem;
+  margin-top: 2rem;
+`;
+
 export const Description = styled.p`
   font-family: "Poppins", sans-serif;
   font-size: 1.2rem;
