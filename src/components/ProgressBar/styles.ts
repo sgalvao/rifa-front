@@ -28,15 +28,15 @@ export const Progress = styled.div<Props>`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ff650e;
+  background-color: #1b05cf;
   width: ${({ soldPercent }) => soldPercent}%;
   background-image: linear-gradient(
     45deg,
-    rgb(235, 139, 84) 25%,
+    rgb(113, 99, 231) 25%,
     transparent 25%,
     transparent 50%,
-    rgb(235, 139, 84) 50%,
-    rgb(235, 139, 84) 75%,
+    rgb(113, 99, 231) 50%,
+    rgb(113, 99, 231) 75%,
     transparent 75%,
     transparent
   );

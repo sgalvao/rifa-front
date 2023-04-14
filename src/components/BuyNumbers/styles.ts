@@ -16,17 +16,33 @@ export const Grid = styled.div`
 export const Price = styled.button`
   display: flex;
   outline: none;
-  border: none;
+  border: 0px solid;
   align-items: center;
   justify-content: center;
-  background: green;
+  background: #84e615;
   font-family: "Inter", sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   padding: 1rem;
   border-radius: 0.6rem;
   color: #f8f8f8;
   cursor: pointer;
   font-weight: 800;
+  box-shadow: 0 0 0 0;
+  animation: scaleIn 1.2s infinite;
+
+  @keyframes scaleIn {
+    0% {
+      transform: scale(0.93);
+    }
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0px 7px 2px rgba(132, 230, 21, 0.7);
+    }
+    100% {
+      transform: scale(0.93);
+      box-shadow: 0 0 0 0 rgba(132, 230, 21, 0.3);
+    }
+  }
 `;
 
 export const Spinner = styled.div`

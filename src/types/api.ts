@@ -9,6 +9,7 @@ export type LoadRifa = {
   image: string;
   finishedDate: string;
   description: string;
+  soldNumbers: number[];
 };
 
 export type LoadRifas = {

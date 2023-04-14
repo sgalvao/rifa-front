@@ -23,10 +23,10 @@ export const FinishedContainer = styled.div`
 export const Info = styled.span`
   font-family: "Poppins", sans-serif;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 
   strong {
-    color: #ff650e;
+    color: #1b05cf;
   }
 `;
 
@@ -56,7 +56,7 @@ export const DescriptionContainer = styled.div`
   border-radius: 1rem;
   padding: 1rem;
   margin-bottom: 2rem;
-  border: 1px dashed #ff650e;
+  border: 1px dashed #1b05cf;
 `;
 
 export const Wrapper = styled.div`
@@ -69,7 +69,7 @@ export const Wrapper = styled.div`
 `;
 
 export const FaqTitle = styled.h2`
-  color: #ff650e;
+  color: #1b05cf;
   font-family: "Poppins", sans-serif;
   font-size: 2rem;
   margin-top: 2rem;
@@ -110,7 +110,10 @@ export const Price = styled.h2`
   font-size: 1.6rem;
   font-family: "Poppins", sans-serif;
   font-weight: 800;
-  color: #ff650e;
+  color: white;
+  background-color: #1b05cf;
+  padding: 0.3rem 1rem;
+  border-radius: 1rem;
 `;
 
 export const Title = styled.h1`

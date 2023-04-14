@@ -24,8 +24,8 @@ export const BuyNumbers = ({ id, numberPrice }: RifaType) => {
     <S.Container>
       <S.Grid>
         <AddMoreButton onClick={() => handleAddMore(5)} value={5} />
-        <AddMoreButton onClick={() => handleAddMore(10)} value={10} popular />
-        <AddMoreButton onClick={() => handleAddMore(50)} value={50} />
+        <AddMoreButton onClick={() => handleAddMore(10)} value={10} />
+        <AddMoreButton onClick={() => handleAddMore(50)} value={50} popular />
         <AddMoreButton onClick={() => handleAddMore(100)} value={100} />
       </S.Grid>
       <IncrementInput

@@ -14,14 +14,14 @@ export const Input = styled.input`
   border-radius: 1rem;
   font-family: "Poppins", sans-serif;
   font-weight: bold;
-  font-size: 1.8rem;
+  font-size: 2rem;
   text-align: center;
   margin: 1rem 0;
-  color: #7a4f27;
+  color: #1b05cf;
 `;
 
 export const Button = styled.button`
-  color: #c06014;
+  color: #1b05cf;
   background: transparent;
   outline: none;
   border: none;

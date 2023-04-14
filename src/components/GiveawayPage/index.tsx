@@ -32,7 +32,6 @@ export const GiveawayPage = (data: Props) => {
       </S.ImageContainer>
       <S.RifaContent>
         <S.Title>{data.loadRifa.name}</S.Title>
-
         <S.Price>
           {" "}
           {data.loadRifa.price.toLocaleString("pt-BR", {
@@ -41,7 +40,7 @@ export const GiveawayPage = (data: Props) => {
           })}
         </S.Price>
       </S.RifaContent>
-      {data.loadRifa.status === "OPEN" && <ProgressiveBar percent={71} />}
+      {data.loadRifa.status === "OPEN" && <ProgressiveBar percent={14} />}
       <S.Info>
         Após a <strong>realização do pagamento</strong> verifique seus números
         na aba <strong>Meus números</strong> no menu do site!
