@@ -10,6 +10,12 @@ export const Container = styled.div`
   padding: 1.4rem;
   border-radius: 1rem;
   background-color: #f8f8f8;
+  overflow-x: hidden;
+
+  ${media.lessThan("medium")`
+  max-width: 40rem;
+  
+  `}
 `;
 
 export const FinishedContainer = styled.div`
