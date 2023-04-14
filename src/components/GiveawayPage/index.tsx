@@ -24,7 +24,7 @@ export const GiveawayPage = (data: Props) => {
     <S.Container>
       <S.ImageContainer url={data.loadRifa.image}>
         <S.ReturnButton onClick={() => router.push("/")}>
-          <HiOutlineArrowLeft size={25} color={"#000"} />{" "}
+          <HiOutlineArrowLeft size={25} color={"#fff"} />{" "}
         </S.ReturnButton>
         <S.Status status={data.loadRifa.status} onClick={handleScrollBottom}>
           {data.loadRifa.status === "OPEN" ? "Adquira já!" : "Finalizado!"}
