@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 
 export const Container = styled.div`
   display: flex;
@@ -96,6 +97,11 @@ export const ImageContainer = styled.div<any>`
   height: 36.2rem;
   border-radius: 1.9rem;
   position: relative;
+
+  ${media.lessThan("medium")`
+  max-width: 36.2rem;
+  
+  `}
 `;
 
 export const RifaContent = styled.div`
