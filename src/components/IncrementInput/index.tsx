@@ -21,7 +21,7 @@ export const IncrementInput = ({
       <S.Button onClick={handleDecrement} disabled={value === 1}>
         <SlMinus size={24} />
       </S.Button>
-      <S.Input value={value} disabled />
+      <S.Input>{value}</S.Input>
       <S.Button onClick={handleIncrement} disabled={value === 1000}>
         <BsPlusCircle size={24} />
       </S.Button>

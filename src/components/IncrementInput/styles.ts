@@ -3,11 +3,12 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   border-radius: 1rem;
+  padding: 0 1rem;
 `;
 
-export const Input = styled.input`
+export const Input = styled.div`
   outline: none;
   background: transparent;
   border: none;
