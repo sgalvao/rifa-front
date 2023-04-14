@@ -4,10 +4,8 @@ import media from "styled-media-query";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 1rem;
-  ${media.lessThan("medium")`
-  max-width: 38rem;
-  `}
+  padding: 0 1rem;
+  
 `;
 
 export const Grid = styled.div`
@@ -26,7 +24,8 @@ export const Price = styled.button`
   background: #84e615;
   font-family: "Inter", sans-serif;
   font-size: 1.8rem;
-  padding: 1rem;
+  padding: 1rem 0;
+  width: 100%;
   border-radius: 0.6rem;
   color: #f8f8f8;
   cursor: pointer;
