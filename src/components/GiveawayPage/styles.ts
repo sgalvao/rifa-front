@@ -13,7 +13,7 @@ export const Container = styled.div`
   overflow-x: hidden;
 
   ${media.lessThan("medium")`
-  max-width: 40rem;
+  max-width: 38rem;
   
   `}
 `;

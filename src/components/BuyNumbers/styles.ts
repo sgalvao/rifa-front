@@ -1,9 +1,13 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 1rem;
+  ${media.lessThan("medium")`
+  max-width: 38rem;
+  `}
 `;
 
 export const Grid = styled.div`
@@ -32,14 +36,14 @@ export const Price = styled.button`
 
   @keyframes scaleIn {
     0% {
-      transform: scale(0.93);
+      transform: scale(0.98);
     }
     70% {
       transform: scale(1);
       box-shadow: 0 0px 7px 2px rgba(132, 230, 21, 0.7);
     }
     100% {
-      transform: scale(0.93);
+      transform: scale(0.98);
       box-shadow: 0 0 0 0 rgba(132, 230, 21, 0.3);
     }
   }
