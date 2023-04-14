@@ -32,21 +32,7 @@ export const Price = styled.button`
   cursor: pointer;
   font-weight: 800;
   box-shadow: 0 0 0 0;
-  animation: scaleIn 1.2s infinite;
-
-  @keyframes scaleIn {
-    0% {
-      transform: scale(0.98);
-    }
-    70% {
-      transform: scale(1);
-      box-shadow: 0 0px 7px 2px rgba(132, 230, 21, 0.7);
-    }
-    100% {
-      transform: scale(0.98);
-      box-shadow: 0 0 0 0 rgba(132, 230, 21, 0.3);
-    }
-  }
+  
 `;
 
 export const Spinner = styled.div`
