@@ -59,7 +59,7 @@ const Checkout = (data: PaymentProps) => {
         !
       </S.Info>
       <S.StatusCard>
-        <FaReceipt size={28} color="#edc740" />
+        <FaReceipt size={28} color="#1b05cf" />
         Aguardando Pagamento...
         <Countdown
           startTime={new Date(data.loadPaymentById.createdAt)}

@@ -26,7 +26,7 @@ export const StatusCard = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px dashed #edc740;
+  border: 1px dashed #1b05cf;
   padding: 1rem;
   width: 100%;
   color: #999999;
@@ -52,7 +52,7 @@ export const Title = styled.h1`
   font-size: 1.4rem;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
-  color: #f7cd6e;
+  color: #1b05cf;
 `;
 
 export const Date = styled.p`
@@ -65,7 +65,7 @@ export const Date = styled.p`
 export const Status = styled.div`
   font-size: 1.2rem;
   font-family: "Poppins", sans-serif;
-  color: #f7cd6e;
+  color: #1b05cf;
   strong {
     color: rgba(0, 0, 0, 0.6);
   }
@@ -82,7 +82,7 @@ export const Numbers = styled.p`
   font-size: 1.2rem;
   font-family: "Poppins", sans-serif;
   overflow-wrap: break-word;
-  color: #f7cd6e;
+  color: #1b05cf;
 
   strong {
     color: rgba(0, 0, 0, 0.6);
@@ -96,7 +96,7 @@ export const Info = styled.p`
   color: rgba(0, 0, 0, 0.6);
 
   strong {
-    color: #f7cd6e;
+    color: #1b05cf;
   }
 `;
 
@@ -160,7 +160,7 @@ export const Button = styled.a`
   font-family: "Poppins", sans-serif;
   color: #f8f8f8;
   font-weight: bold;
-  background-color: #c06014;
+  background-color: #1b05cf;
   margin: 3rem;
   text-decoration: none;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
