@@ -3,6 +3,7 @@ import QRCode from "react-qr-code";
 import { AiOutlineClose } from "react-icons/ai";
 import { FaRegCopy } from "react-icons/fa";
 import { toast } from "react-toastify";
+import CopyToClipboard from "react-copy-to-clipboard";
 
 type Props = {
   pixCode: string;
@@ -12,10 +13,7 @@ type Props = {
 
 export const PixModal = ({ pixCode, isOpen, onClose }: Props) => {
   const handleCopy = () => {
-    navigator.clipboard.writeText(pixCode);
-    alert(
-      "Codigo pix copiado! realize o pagamento através do aplicativo de seu banco"
-    );
+   
     toast.info("Código PIX copiado para area de transferência");
   };
 
@@ -29,7 +27,7 @@ export const PixModal = ({ pixCode, isOpen, onClose }: Props) => {
         <S.Divider />
         <S.Description>
           Pix copia e cola: abra o <strong>aplicativo do seu banco</strong> pelo
-          celular, selecione <strong>pix COPIA E COLA</strong> e faça o
+          celular, selecione a opção <strong>PIX COPIA E COLA</strong> e faça o
           pagamento. Ou
           <strong> escaneie</strong> o código com um celular.
         </S.Description>
@@ -37,11 +35,14 @@ export const PixModal = ({ pixCode, isOpen, onClose }: Props) => {
           <QRCode value={pixCode} size={180} />
         </S.PixContainer>
         <S.Wrapper>
+         
           <S.Input value={pixCode} disabled />
-          <S.CopyButton onClick={handleCopy}>
+         <CopyToClipboard text={pixCode} onCopy={() => {toast.info("Código PIX copiado para area de transferência");}}>
+          <S.CopyButton>
             <FaRegCopy />
             Copiar
           </S.CopyButton>
+         </CopyToClipboard>
         </S.Wrapper>
       </S.Container>
     </>
