@@ -68,7 +68,7 @@ export const Description = styled.span`
   font-size: 1.4rem;
 
   strong {
-    color: #fcbc51;
+    color: #1b05cf;
   }
 `;
 

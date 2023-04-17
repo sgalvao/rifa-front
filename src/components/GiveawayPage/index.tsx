@@ -40,7 +40,7 @@ export const GiveawayPage = (data: Props) => {
           })}
         </S.Price>
       </S.RifaContent>
-      {data.loadRifa.status === "OPEN" && <ProgressiveBar percent={14} />}
+      {data.loadRifa.status === "OPEN" && <ProgressiveBar percent={27} />}
       <S.Info>
         Após a <strong>realização do pagamento</strong> verifique seus números
         na aba <strong>Meus números</strong> no menu do site!
