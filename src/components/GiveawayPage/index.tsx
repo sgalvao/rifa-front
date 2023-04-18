@@ -6,6 +6,7 @@ import { ProgressiveBar } from "../ProgressBar";
 import { HiOutlineArrowLeft } from "react-icons/hi2";
 import { useRouter } from "next/router";
 import { FaqCard } from "../FaqCard";
+import { Ranking } from "@/components/Ranking";
 
 type Props = {
   loadRifa: LoadRifa;
@@ -56,6 +57,7 @@ export const GiveawayPage = (data: Props) => {
               }}
             />
           </S.DescriptionContainer>
+          {/* <Ranking /> */}
           <BuyNumbers id={data.loadRifa.id} numberPrice={data.loadRifa.price} />
           <S.Wrapper>
             <S.FaqTitle>PERGUNTAS FREQUENTES</S.FaqTitle>
@@ -85,6 +87,7 @@ export const GiveawayPage = (data: Props) => {
               {format(new Date(data.loadRifa.finishedDate), "dd/MM/yyyy")}
             </S.Date>
           </S.FinishedContainer>
+          <Ranking />
         </>
       )}
     </S.Container>
