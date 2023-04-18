@@ -57,8 +57,8 @@ export const GiveawayPage = (data: Props) => {
               }}
             />
           </S.DescriptionContainer>
-          {/* <Ranking /> */}
           <BuyNumbers id={data.loadRifa.id} numberPrice={data.loadRifa.price} />
+          <Ranking />
           <S.Wrapper>
             <S.FaqTitle>PERGUNTAS FREQUENTES</S.FaqTitle>
             <FaqCard
