@@ -21,7 +21,6 @@ export const Ranking = ({ ranking, prize }: RankingProps) => {
   const [activeTab, setActiveTab] = useState("tab1");
   const tab1 = activeTab === "tab1";
   const tab2 = activeTab === "tab2";
-  console.log(ranking);
 
   return (
     <S.Container>
