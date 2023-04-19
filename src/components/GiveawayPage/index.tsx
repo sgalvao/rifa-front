@@ -65,7 +65,9 @@ export const GiveawayPage = (data: Props) => {
             />
           </S.DescriptionContainer>
           <BuyNumbers id={data.loadRifa.id} numberPrice={data.loadRifa.price} />
-          {<Ranking ranking={data.loadRanking} prize={{ ...prizes }} />}
+          {data.loadRanking.length && (
+            <Ranking ranking={data.loadRanking} prize={{ ...prizes }} />
+          )}
           <S.Wrapper>
             <S.FaqTitle>PERGUNTAS FREQUENTES</S.FaqTitle>
             <FaqCard
@@ -94,7 +96,9 @@ export const GiveawayPage = (data: Props) => {
               {format(new Date(data.loadRifa.finishedDate), "dd/MM/yyyy")}
             </S.Date>
           </S.FinishedContainer>
-          <Ranking ranking={data.loadRanking} prize={{ ...prizes }} />
+          {data.loadRifa.firstPrize && (
+            <Ranking ranking={data.loadRanking} prize={{ ...prizes }} />
+          )}
         </>
       )}
     </S.Container>
