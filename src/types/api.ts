@@ -10,6 +10,22 @@ export type LoadRifa = {
   finishedDate: string;
   description: string;
   soldNumbers: number[];
+  firstPrize?: number;
+  secondPrize?: number;
+  thirdPrize?: number;
+};
+
+export type Ranking = {
+  name: string;
+  count: number;
+};
+
+export type LoadRanking = Ranking[];
+
+export type RankingType = {
+  firstPrize?: number;
+  secondPrize?: number;
+  thirdPrize?: number;
 };
 
 export type LoadRifas = {
