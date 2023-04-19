@@ -2,12 +2,14 @@ import { GiveawayPage } from "@/components/GiveawayPage";
 import { GetServerSidePropsContext } from "next/types";
 import { LOAD_RIFA } from "@/GraphQL/Queries/rifa";
 import { initializeApollo } from "@/utils/apollo";
-import { LoadRifa } from "@/types/api";
+import { LoadRanking, LoadRifa } from "@/types/api";
 import Head from "next/head";
 import { Base } from "@/templates/Base";
+import { LOAD_RANKING } from "@/GraphQL/Queries/ranking";
 
 type RifaProps = {
   loadRifa: LoadRifa;
+  loadRanking: LoadRanking;
 };
 
 export default function Rifa(data: RifaProps) {
@@ -33,7 +35,16 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     },
   });
 
+  const {
+    data: { loadRanking },
+  } = await apollo.query({
+    query: LOAD_RANKING,
+    variables: {
+      rifaId: context.params?.rifaId,
+    },
+  });
+
   return {
-    props: { loadRifa },
+    props: { loadRifa, loadRanking },
   };
 }

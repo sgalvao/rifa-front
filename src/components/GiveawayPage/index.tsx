@@ -1,4 +1,4 @@
-import { LoadRifa } from "@/types/api";
+import { LoadRanking, LoadRifa } from "@/types/api";
 import { BuyNumbers } from "../BuyNumbers";
 import * as S from "./styles";
 import { format } from "date-fns";
@@ -10,6 +10,7 @@ import { Ranking } from "@/components/Ranking";
 
 type Props = {
   loadRifa: LoadRifa;
+  loadRanking: LoadRanking;
 };
 
 export const GiveawayPage = (data: Props) => {
@@ -17,6 +18,12 @@ export const GiveawayPage = (data: Props) => {
 
   const handleScrollBottom = () => {
     window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+  };
+
+  const prizes = {
+    firstPrize: data.loadRifa.firstPrize,
+    secondPrize: data.loadRifa.secondPrize,
+    thirdPrize: data.loadRifa.thirdPrize,
   };
 
   const router = useRouter();
@@ -58,7 +65,7 @@ export const GiveawayPage = (data: Props) => {
             />
           </S.DescriptionContainer>
           <BuyNumbers id={data.loadRifa.id} numberPrice={data.loadRifa.price} />
-          <Ranking />
+          {<Ranking ranking={data.loadRanking} prize={{ ...prizes }} />}
           <S.Wrapper>
             <S.FaqTitle>PERGUNTAS FREQUENTES</S.FaqTitle>
             <FaqCard
@@ -87,7 +94,7 @@ export const GiveawayPage = (data: Props) => {
               {format(new Date(data.loadRifa.finishedDate), "dd/MM/yyyy")}
             </S.Date>
           </S.FinishedContainer>
-          <Ranking />
+          <Ranking ranking={data.loadRanking} prize={{ ...prizes }} />
         </>
       )}
     </S.Container>
