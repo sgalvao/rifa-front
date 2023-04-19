@@ -22,6 +22,24 @@ export const Ranking = ({ ranking, prize }: RankingProps) => {
   const tab1 = activeTab === "tab1";
   const tab2 = activeTab === "tab2";
 
+  const parsed = [
+    {
+      icon: "🥇",
+      color: "#57d482",
+      size: 100,
+    },
+    {
+      icon: "🥈",
+      color: "#57acd4",
+      size: 95,
+    },
+    {
+      icon: "🥉",
+      color: "#9c2c1c",
+      size: 90,
+    },
+  ];
+
   return (
     <S.Container>
       <S.Tabs>
@@ -42,26 +60,23 @@ export const Ranking = ({ ranking, prize }: RankingProps) => {
       </S.Tabs>
       {activeTab === "tab1" ? (
         <S.Wrapper>
-          <S.PodiumCard color="#57d482" size={100}>
-            <S.Name>
-              {" "}
-              <strong>1°🥇</strong> {ranking[0].name}
-            </S.Name>
-            <S.Count>{ranking[0].count} Bilhete(s)</S.Count>
-          </S.PodiumCard>
-          <S.PodiumCard color="#57acd4" size={95}>
-            <S.Name>
-              {" "}
-              <strong>2°🥈</strong> {ranking[1].name}
-            </S.Name>
-            <S.Count>{ranking[1].count} Bilhete(s)</S.Count>
-          </S.PodiumCard>
-          <S.PodiumCard color="#9c2c1c" size={90}>
-            <S.Name>
-              <strong>3°🥉</strong> {ranking[2].name}
-            </S.Name>
-            <S.Count>{ranking[2].count} Bilhete(s)</S.Count>
-          </S.PodiumCard>
+          {ranking.length &&
+            ranking.map((item, index) => (
+              <S.PodiumCard
+                key={index}
+                color={parsed[index].color}
+                size={parsed[index].size}
+              >
+                <S.Name>
+                  {" "}
+                  <strong>
+                    {index + 1}°{parsed[index].icon}
+                  </strong>{" "}
+                  {item.name}
+                </S.Name>
+                <S.Count>{item.count} Bilhete(s)</S.Count>
+              </S.PodiumCard>
+            ))}
         </S.Wrapper>
       ) : (
         <S.Wrapper>
