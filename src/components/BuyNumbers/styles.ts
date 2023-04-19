@@ -5,7 +5,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 1rem;
-  
 `;
 
 export const Grid = styled.div`
@@ -24,14 +23,13 @@ export const Price = styled.button`
   background: #84e615;
   font-family: "Inter", sans-serif;
   font-size: 1.8rem;
-  padding: 1rem 0;
+  padding: 1.6rem 0;
   width: 100%;
   border-radius: 0.6rem;
   color: #f8f8f8;
   cursor: pointer;
   font-weight: 800;
   box-shadow: 0 0 0 0;
-  
 `;
 
 export const Spinner = styled.div`

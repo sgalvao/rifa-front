@@ -57,12 +57,13 @@ export const Tabs = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding: 1rem;
 `;
 
 export const TabButton = styled.button<Props>`
   border: none;
   padding: 1rem;
-  background-color: ${({ isActive }) => (isActive ? "#0e4ce7" : "#f8f8f8")};
+  background-color: ${({ isActive }) => (isActive ? "#0e4ce7" : "#DFE0E1")};
   outline: none;
   color: ${({ isActive }) => (isActive ? "#fff" : "#0e4ce7")};
   font-size: 1.4rem;
