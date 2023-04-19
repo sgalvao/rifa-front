@@ -21,11 +21,11 @@ const About = () => {
         uma transmissão ao vivo no <strong>Instagram</strong> e divulgado no
         grupo do{" "}
         <a
-          href="https://t.me/sortediariapremios"
+          href="https://chat.whatsapp.com/Gd82wrnaPdF0fUBbVhAujW"
           target="_blank"
           rel="noreferrer"
         >
-          Telegram
+          WhatsApp
         </a>{" "}
         da Maquina De Prêmios. A equipe responsável entrará em contato com o
         participante sorteado através do número de telefone cadastrado durante o

@@ -6,6 +6,7 @@ import { useState } from "react";
 import { PixModal } from "../PixModal";
 import { format } from "date-fns";
 import Countdown from "../Countdown";
+import { BsWhatsapp } from "react-icons/bs";
 
 export type PaymentProps = {
   loadPaymentById: {
@@ -119,11 +120,11 @@ const Checkout = (data: PaymentProps) => {
         pixCode={data.loadPaymentById.copyPasteCode}
       />
       <S.Button
-        href="https://t.me/sortediariapremios"
+        href="https://chat.whatsapp.com/Gd82wrnaPdF0fUBbVhAujW"
         target="_blank"
         rel="noreferrer"
       >
-        <FaTelegramPlane size={22} /> Entrar no grupo
+        <BsWhatsapp size={22} /> Entrar no grupo
       </S.Button>
     </S.Container>
   );
