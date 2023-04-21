@@ -15,7 +15,7 @@ export const Container = styled.div`
   margin-bottom: 1rem;
   background-color: #fff;
   cursor: pointer;
-  border: 1px solid rgba(193, 127, 4, 0.2);
+  border: 1px solid rgba(27, 5, 207, 0.2);
 `;
 
 export const RifaImage = styled.div<Props>`
@@ -75,7 +75,7 @@ export const Status = styled.div<Props>`
 `;
 
 export const Price = styled.p`
-  color: #f29d38;
+  color: #1b05cf;
   font-weight: bold;
   font-family: "Poppins", sans-serif;
   font-size: 1.4rem;

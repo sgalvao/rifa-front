@@ -17,7 +17,7 @@ export const Item = styled.div<any>`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  color: ${({ isActive }) => (isActive ? "#F29D38" : "#999999")};
+  color: ${({ isActive }) => (isActive ? "#1B05CF" : "#999999")};
   transition: all 1s ease-in;
 `;
 
