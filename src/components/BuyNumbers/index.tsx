@@ -21,7 +21,7 @@ export const BuyNumbers = ({ id, numberPrice }: RifaType) => {
     price,
   } = usePayment({ id, numberPrice });
   return (
-    <S.Container>
+    <S.Container id="buy-numbers">
       <S.Grid>
         <AddMoreButton onClick={() => handleAddMore(5)} value={5} />
         <AddMoreButton onClick={() => handleAddMore(10)} value={10} />

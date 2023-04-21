@@ -17,7 +17,8 @@ export const GiveawayPage = (data: Props) => {
   const description = data.loadRifa.description.replace(/\\n/g, "<br>");
 
   const handleScrollBottom = () => {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    const section = document.querySelector("#buy-numbers");
+    section?.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
   const prizes = {
