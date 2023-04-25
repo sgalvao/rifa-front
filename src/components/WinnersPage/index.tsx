@@ -14,10 +14,11 @@ export const WinnersPage = (data: WinnersProps) => {
   return (
     <S.Container>
       <S.Title>🏆 Ganhadores 🏆</S.Title>
-      {data.loadWinners.length &&
-        data.loadWinners.map((item, index) => (
-          <WinnerCard key={index} {...item} />
-        ))}
+      {data.loadWinners.length
+        ? data.loadWinners.map((item, index) => (
+            <WinnerCard key={index} {...item} />
+          ))
+        : null}
     </S.Container>
   );
 };
