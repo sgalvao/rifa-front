@@ -120,7 +120,7 @@ const Checkout = (data: PaymentProps) => {
         pixCode={data.loadPaymentById.copyPasteCode}
       />
       <S.Button
-        href="https://chat.whatsapp.com/Gd82wrnaPdF0fUBbVhAujW"
+        href="https://chat.whatsapp.com/Her3zgMMhdgJcG7oTLyIn2"
         target="_blank"
         rel="noreferrer"
       >
