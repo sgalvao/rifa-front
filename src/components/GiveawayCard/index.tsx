@@ -10,14 +10,7 @@ type Props = {
   image: string;
 };
 
-export const GiveAwayCard = ({
-  name,
-  id,
-  price,
-  status,
-  winnerNumber,
-  image,
-}: Props) => {
+export const GiveAwayCard = ({ name, id, price, status, image }: Props) => {
   const router = useRouter();
 
   return (

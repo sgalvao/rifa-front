@@ -2,11 +2,11 @@ import { LoadRanking, LoadRifa } from "@/types/api";
 import { BuyNumbers } from "../BuyNumbers";
 import * as S from "./styles";
 import { format } from "date-fns";
-import { ProgressiveBar } from "../ProgressBar";
 import { HiOutlineArrowLeft } from "react-icons/hi2";
 import { useRouter } from "next/router";
 import { FaqCard } from "../FaqCard";
 import { Ranking } from "@/components/Ranking";
+import { useEffect } from "react";
 
 type Props = {
   loadRifa: LoadRifa;
@@ -28,6 +28,15 @@ export const GiveawayPage = (data: Props) => {
   };
 
   const router = useRouter();
+
+  useEffect(() => {
+    const { referralCode } = router.query;
+
+    if (referralCode) {
+      localStorage.setItem("@referral", JSON.stringify(referralCode));
+    }
+  },[router.query])
+  
 
   return (
     <S.Container>

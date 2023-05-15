@@ -21,7 +21,7 @@ export const HighlightCard = ({
 }: Props) => {
   return (
     <S.Container onClick={onClick}>
-      <S.RifaImage url={image} />
+      <S.RifaImage src={image} width={"100%"} height={"26.4rem"} />
       <S.Wrapper>
         <S.Name>{name}</S.Name>
         <S.Price>
