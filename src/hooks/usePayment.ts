@@ -76,10 +76,12 @@ export const usePayment = ({ id, numberPrice }: RifaType) => {
 
     try {
       toast("🚀 Gerando Números... Aguarde!");
+      const referralCode = localStorage.getItem("@referral");
       const response = await createPayment({
         variables: {
           rifaId: id,
           quantity: value,
+          referralCode: referralCode || null,
         },
         context: {
           session,

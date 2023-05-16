@@ -18,7 +18,7 @@ export const Container = styled.div`
   border: 1px solid rgba(27, 5, 207, 0.2);
 `;
 
-export const RifaImage = styled.div<Props>`
+export const RifaImage = styled.img<Props>`
   width: 100%;
   height: 26.4rem;
   background-image: ${({ url }) => `url(${url})`};
