@@ -53,7 +53,9 @@ export const LoginForm = ({ setAccountError, setPhone, cart }: Props) => {
       }
       try {
         toast("🚀 Gerando Números... Aguarde!");
-        const referralCode = localStorage.getItem("@referral");
+        const referralCode = JSON.parse(
+          localStorage.getItem("@referral") as string
+        );
 
         const response = await createPayment({
           variables: {

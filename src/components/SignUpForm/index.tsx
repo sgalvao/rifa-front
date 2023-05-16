@@ -51,7 +51,9 @@ export const SignUpForm = ({ phone, cart }: Props) => {
     const handlePayment = async () => {
       toast("Gerando Números... Aguarde!");
       try {
-        const referralCode = localStorage.getItem("@referral");
+        const referralCode = JSON.parse(
+          localStorage.getItem("@referral") as string
+        );
         const response = await createPayment({
           variables: {
             rifaId: cart?.rifaId,
