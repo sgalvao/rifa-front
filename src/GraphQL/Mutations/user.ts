@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const CREATE_USER_MUTATION = gql`
-  mutation CreatePayment($user: UserInput) {
+  mutation CreateUser($user: UserInput) {
     createUser(user: $user) {
       email
       id

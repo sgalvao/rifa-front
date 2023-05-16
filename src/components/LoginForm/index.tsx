@@ -56,12 +56,12 @@ export const LoginForm = ({ setAccountError, setPhone, cart }: Props) => {
         const referralCode = JSON.parse(
           localStorage.getItem("@referral") as string
         );
-
+        console.log(referralCode);
         const response = await createPayment({
           variables: {
             rifaId: cart?.rifaId,
             quantity: cart?.quantity,
-            referralCode: referralCode || null,
+            referralCode: referralCode,
           },
           context: {
             session,

@@ -83,7 +83,7 @@ export const usePayment = ({ id, numberPrice }: RifaType) => {
         variables: {
           rifaId: id,
           quantity: value,
-          referralCode: referralCode || null,
+          referralCode: referralCode,
         },
         context: {
           session,

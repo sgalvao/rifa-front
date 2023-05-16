@@ -58,7 +58,7 @@ export const SignUpForm = ({ phone, cart }: Props) => {
           variables: {
             rifaId: cart?.rifaId,
             quantity: cart?.quantity,
-            referralCode: referralCode || null,
+            referralCode: referralCode,
           },
           context: {
             session,
