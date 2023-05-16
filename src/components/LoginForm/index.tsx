@@ -53,10 +53,13 @@ export const LoginForm = ({ setAccountError, setPhone, cart }: Props) => {
       }
       try {
         toast("🚀 Gerando Números... Aguarde!");
+        const referralCode = localStorage.getItem("@referral");
+
         const response = await createPayment({
           variables: {
             rifaId: cart?.rifaId,
             quantity: cart?.quantity,
+            referralCode: referralCode || null,
           },
           context: {
             session,
