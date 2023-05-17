@@ -12,6 +12,7 @@ export const Container = styled.div`
   background-color: #000;
   align-items: center;
   padding: 1rem;
+  justify-content: space-between;
 `;
 
 export const Logo = styled.div``;
@@ -86,4 +87,20 @@ export const MenuButton = styled.div`
   svg {
     fill: #f3f4ed;
   }
+`;
+
+export const SignOutContainer = styled.div`
+  display: flex;
+  justify-content: end;
+  margin-right: 2rem;
+
+  svg {
+    color: #fff;
+    fill: #fff;
+  }
+`;
+
+export const Content = styled.div`
+  display: flex;
+  align-items: center;
 `;
