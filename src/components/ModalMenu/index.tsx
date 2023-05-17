@@ -1,6 +1,5 @@
 import { HiGiftTop } from "react-icons/hi2";
 import { TfiClose } from "react-icons/tfi";
-import { BiHomeSmile, BiSupport } from "react-icons/bi";
 import { GiClover } from "react-icons/gi";
 import { SlTrophy } from "react-icons/sl";
 import { BsFileEarmarkRuled } from "react-icons/bs";
@@ -8,7 +7,6 @@ import { FaTelegramPlane } from "react-icons/fa";
 
 import * as S from "./styles";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import { FiHome } from "react-icons/fi";
 
 interface ModalProps {

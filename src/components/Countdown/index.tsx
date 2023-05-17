@@ -15,7 +15,7 @@ const Countdown = ({ startTime, handleEnd }: Props) => {
 
   const router = useRouter();
 
-  if (minutes + seconds <= 0) {
+  if (minutes + seconds < 0) {
     handleEnd();
     return (
       <S.Container>
