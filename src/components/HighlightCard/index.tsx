@@ -11,11 +11,9 @@ type Props = {
 };
 
 export const HighlightCard = ({
-  id,
   name,
   price,
   status,
-  winnerNumber,
   image,
   onClick,
 }: Props) => {

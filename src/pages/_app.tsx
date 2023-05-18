@@ -12,12 +12,29 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import MenuProvider from "@/context/MenuProvider";
+import { NextUIProvider, createTheme } from "@nextui-org/react";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
+
 export default function App({
   Component,
   pageProps: { session, ...pageProps },
 }: AppProps | any) {
   const client = useApollo(pageProps, session);
   const router = useRouter();
+
+  const lightTheme = createTheme({
+    type: "light",
+    theme: {
+      colors: {},
+    },
+  });
+
+  const darkTheme = createTheme({
+    type: "dark",
+    theme: {
+      colors: {},
+    },
+  });
 
   useEffect(() => {
     fbq.pageview();
@@ -44,13 +61,21 @@ export default function App({
         <CheckoutProvider>
           <MenuProvider>
             <ApolloProvider client={client}>
-              <GlobalStyle />
+              <NextThemesProvider
+                defaultTheme="light"
+                attribute="class"
+                value={{
+                  light: lightTheme.className,
+                  dark: darkTheme.className,
+                }}
+              >
+                <GlobalStyle />
 
-              <Script
-                id="fb-pixel"
-                strategy="afterInteractive"
-                dangerouslySetInnerHTML={{
-                  __html: `
+                <Script
+                  id="fb-pixel"
+                  strategy="afterInteractive"
+                  dangerouslySetInnerHTML={{
+                    __html: `
                   !function(f,b,e,v,n,t,s)
                   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
                   n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -63,22 +88,25 @@ export default function App({
                   fbq('track', 'PageView');
              
                 `,
-                }}
-              />
-              <Component {...pageProps} />
-              <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                limit={3}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-              />
+                  }}
+                />
+                <NextUIProvider>
+                  <Component {...pageProps} />
+                </NextUIProvider>
+                <ToastContainer
+                  position="top-right"
+                  autoClose={5000}
+                  limit={3}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                  theme="dark"
+                />
+              </NextThemesProvider>
             </ApolloProvider>
           </MenuProvider>
         </CheckoutProvider>

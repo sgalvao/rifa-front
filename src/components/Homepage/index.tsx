@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import { HighlightCard } from "@/components/HighlightCard";
 import * as S from "./styles";
 import { ImFire } from "react-icons/im";

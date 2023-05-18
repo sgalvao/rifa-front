@@ -1,7 +1,4 @@
-import { CheckoutContext } from "@/context/CheckoutProvider";
-import { Alert, AlertTitle } from "@mui/material";
-import { useSession } from "next-auth/react";
-import { useState, useContext, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { BsInfoCircle } from "react-icons/bs";
 import { LoginForm } from "../LoginForm";
 import { SignUpForm } from "../SignUpForm";

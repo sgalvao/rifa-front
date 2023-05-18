@@ -1,5 +1,3 @@
-import dateHelper from "@/utils/date-helper";
-import { useEffect, useState } from "react";
 import { addMinutes } from "date-fns";
 import { useCountdown } from "@/utils/useCountdown";
 import * as S from "./styles";

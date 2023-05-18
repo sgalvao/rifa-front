@@ -12,11 +12,6 @@ type Props = {
 };
 
 export const PixModal = ({ pixCode, isOpen, onClose }: Props) => {
-  const handleCopy = () => {
-   
-    toast.info("Código PIX copiado para area de transferência");
-  };
-
   return (
     <>
       <S.Container isOpen={isOpen}>
@@ -35,14 +30,18 @@ export const PixModal = ({ pixCode, isOpen, onClose }: Props) => {
           <QRCode value={pixCode} size={180} />
         </S.PixContainer>
         <S.Wrapper>
-         
           <S.Input value={pixCode} disabled />
-         <CopyToClipboard text={pixCode} onCopy={() => {toast.info("Código PIX copiado para area de transferência");}}>
-          <S.CopyButton>
-            <FaRegCopy />
-            Copiar
-          </S.CopyButton>
-         </CopyToClipboard>
+          <CopyToClipboard
+            text={pixCode}
+            onCopy={() => {
+              toast.info("Código PIX copiado para area de transferência");
+            }}
+          >
+            <S.CopyButton>
+              <FaRegCopy />
+              Copiar
+            </S.CopyButton>
+          </CopyToClipboard>
         </S.Wrapper>
       </S.Container>
     </>

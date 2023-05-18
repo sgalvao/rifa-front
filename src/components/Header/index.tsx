@@ -1,7 +1,4 @@
 import * as S from "./styles";
-import { HiGiftTop } from "react-icons/hi2";
-import { FiMenu } from "react-icons/fi";
-import { ModalMenu } from "@/components/ModalMenu";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
@@ -9,12 +6,6 @@ import { GrLogout } from "react-icons/gr";
 import { signOut } from "next-auth/react";
 
 const Header = () => {
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
   const route = useRouter();
   const handleSignOut = async () => {
     await signOut({ callbackUrl: "/" });

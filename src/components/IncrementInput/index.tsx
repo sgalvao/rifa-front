@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { BsPlusCircle } from "react-icons/bs";
 import { SlMinus } from "react-icons/sl";
 import * as S from "./styles";

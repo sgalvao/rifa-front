@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { FaqCard } from "../FaqCard";
 import { Ranking } from "@/components/Ranking";
 import { useEffect } from "react";
+import { Collapse, Grid } from "@nextui-org/react";
 
 type Props = {
   loadRifa: LoadRifa;
@@ -35,8 +36,7 @@ export const GiveawayPage = (data: Props) => {
     if (referralCode) {
       localStorage.setItem("@referral", JSON.stringify(referralCode));
     }
-  },[router.query])
-  
+  }, [router.query]);
 
   return (
     <S.Container>
@@ -77,21 +77,9 @@ export const GiveawayPage = (data: Props) => {
           {data.loadRanking.length && (
             <Ranking ranking={data.loadRanking} prize={{ ...prizes }} />
           )}
-          <S.Wrapper>
-            <S.FaqTitle>PERGUNTAS FREQUENTES</S.FaqTitle>
-            <FaqCard
-              text={`A data do sorteio será definida após a venda de todas as cotas e sera INFORMADA previamente em todos os canais de divulgação inclusive aqui no site, todos nossos sorteios são realizados através da extração da Loteria Federal. Caso haja alguma dúvida entrar em contato com o suporte pelo Telegram`}
-              question="Qual a data do sorteio?"
-            />
-            <FaqCard
-              text="Nossa política de segurança e credibilidade é extremamente rígida, todos nossos sorteios são feitos através da Loteria Federal e divulgamos os resultados através de live na nossa pagina do Instagram e Telegram!! Acesse nossas redes sociais e se estiver com qualquer tipo de dúvida, entre em contato com nossa equipe pelo Telegram."
-              question="O sorteio é confiável?"
-            />
-            <FaqCard
-              text="Assim que for definido o resultado do sorteio nós entraremos em contato com o ganhador através dos dados fornecidos por ele na hora da compra da cota (EMAIL ou Whatsapp/Telegram) ou ligaremos para o número para informar o ganhador, mas você também poderá conferir aqui na pagina da Ação ou em nosso grupo do Telegram (link no menu)"
-              question="Como saber se eu ganhei?"
-            />
-          </S.Wrapper>
+          <S.FaqTitle>PERGUNTAS FREQUENTES</S.FaqTitle>
+
+          <FaqCard />
         </>
       ) : (
         <>
