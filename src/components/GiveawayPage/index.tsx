@@ -2,12 +2,12 @@ import { LoadRanking, LoadRifa } from "@/types/api";
 import { BuyNumbers } from "../BuyNumbers";
 import * as S from "./styles";
 import { format } from "date-fns";
-import { HiOutlineArrowLeft } from "react-icons/hi2";
 import { useRouter } from "next/router";
 import { FaqCard } from "../FaqCard";
 import { Ranking } from "@/components/Ranking";
-import { useEffect } from "react";
-import { Collapse, Grid } from "@nextui-org/react";
+import { useEffect, useState } from "react";
+import { Badge, Card, Image, Row, Text } from "@nextui-org/react";
+import { Flex } from "@/styles/flex";
 
 type Props = {
   loadRifa: LoadRifa;
@@ -15,12 +15,9 @@ type Props = {
 };
 
 export const GiveawayPage = (data: Props) => {
-  const description = data.loadRifa.description.replace(/\\n/g, "<br>");
+  const [showMore, setShowMore] = useState(false);
 
-  const handleScrollBottom = () => {
-    const section = document.querySelector("#buy-numbers");
-    section?.scrollIntoView({ behavior: "smooth", block: "center" });
-  };
+  const description = data.loadRifa.description.replace(/\\n/g, "<br>");
 
   const prizes = {
     firstPrize: data.loadRifa.firstPrize,
@@ -39,45 +36,103 @@ export const GiveawayPage = (data: Props) => {
   }, [router.query]);
 
   return (
-    <S.Container>
-      <S.ImageContainer url={data.loadRifa.image}>
-        <S.ReturnButton onClick={() => router.push("/")}>
-          <HiOutlineArrowLeft size={25} color={"#fff"} />{" "}
-        </S.ReturnButton>
-        <S.Status status={data.loadRifa.status} onClick={handleScrollBottom}>
-          {data.loadRifa.status === "OPEN" ? "Adquira já!" : "Finalizado!"}
-        </S.Status>
-      </S.ImageContainer>
-      <S.RifaContent>
-        <S.Title>{data.loadRifa.name}</S.Title>
-        <S.Price>
-          {" "}
-          {data.loadRifa.price.toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-          })}
-        </S.Price>
-      </S.RifaContent>
-      <S.Info>
-        Após a <strong>realização do pagamento</strong> verifique seus números
-        na aba <strong>Meus números</strong> no menu do site!
-      </S.Info>
+    <Flex direction={"column"}>
+      <Card>
+        <Card.Body>
+          <Card.Image
+            src={data.loadRifa.image}
+            objectFit="cover"
+            width="100%"
+            alt={data.loadRifa.name}
+            css={{ borderRadius: "1.2rem" }}
+          />
+        </Card.Body>
+        <Card.Footer css={{ justifyItems: "center" }}>
+          <Row wrap="wrap" justify="space-between" align="center">
+            <Text h2>{data.loadRifa.name}</Text>
+            <Badge color={"success"} size={"xl"}>
+              {data.loadRifa.price.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              })}
+            </Badge>
+          </Row>
+        </Card.Footer>
+      </Card>
+
+      {/* <Flex justify={"between"} align={"center"} css={{ padding: "1.6rem" }}>
+        <Text
+          h2
+          css={{ fontFamily: "Poppins, sans-serif", fontSize: "1.6rem" }}
+        >
+          {data.loadRifa.name}
+        </Text>
+        <Flex direction={"column"}>
+          <Text
+            h2
+            css={{
+              fontSize: "1.6rem",
+              fontFamily: "Poppins, sans-serif",
+              fontWeight: "800",
+              color: "white",
+              backgroundColor: " #1b05cf",
+              padding: "0.3rem 1rem",
+              borderRadius: "1rem",
+            }}
+          >
+            {" "}
+            {data.loadRifa.price.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })}
+          </Text>
+        </Flex>
+      </Flex> */}
 
       {data.loadRifa.status === "OPEN" ? (
         <>
-          <S.DescriptionContainer>
-            <S.DescriptionTitle>Descrição</S.DescriptionTitle>
-            <S.Description
-              dangerouslySetInnerHTML={{
-                __html: description,
-              }}
-            />
-          </S.DescriptionContainer>
+          <Card css={{ backgroundColor: "transparent" }}>
+            <Card.Body>
+              <Text h3 css={{ fontWeight: "bold" }}>
+                Descrição
+              </Text>
+              <Text
+                h4
+                dangerouslySetInnerHTML={{
+                  __html: showMore
+                    ? description
+                    : `${description.substring(0, 250)}...`,
+                }}
+              />
+              <Text
+                h4
+                color="error"
+                css={{ cursor: "pointer" }}
+                onClick={() => setShowMore((current) => !current)}
+              >
+                {showMore ? "Mostrar menos" : "Ler mais"}
+              </Text>
+            </Card.Body>
+          </Card>
           <BuyNumbers id={data.loadRifa.id} numberPrice={data.loadRifa.price} />
+          <S.Info>
+            Após a <strong>realização do pagamento</strong> verifique seus
+            números na aba <strong>Meus números</strong> no menu do site!
+          </S.Info>
           {data.loadRanking.length && (
             <Ranking ranking={data.loadRanking} prize={{ ...prizes }} />
           )}
-          <S.FaqTitle>PERGUNTAS FREQUENTES</S.FaqTitle>
+          <Text
+            h2
+            css={{
+              color: "#1b05cf",
+              fontFamily: "Poppins, sans-serif",
+              fontSize: "2rem",
+              marginTop: "2rem",
+            }}
+          >
+            PERGUNTAS FREQUENTES
+          </Text>
 
           <FaqCard />
         </>
@@ -98,6 +153,6 @@ export const GiveawayPage = (data: Props) => {
           )}
         </>
       )}
-    </S.Container>
+    </Flex>
   );
 };

@@ -13,3 +13,8 @@ export const Container = styled.div`
 export const Content = styled.div`
   margin: 1rem 0 5rem 0;
 `;
+
+export const Footer = styled.footer`
+  width: 100vw;
+  background-color: #26292b;
+`;
