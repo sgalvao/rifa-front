@@ -17,4 +17,5 @@ export const Content = styled.div`
 export const Footer = styled.footer`
   width: 100vw;
   background-color: #26292b;
+  padding: 2rem;
 `;

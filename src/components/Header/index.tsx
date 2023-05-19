@@ -55,7 +55,10 @@ const Header = () => {
           <Dropdown.Item color="primary">
             <Text h3 color="primary">
               {session?.user?.name
-                ? `Olá, ${session?.user?.name?.split(" ")}`
+                ? `Olá, ${session?.user?.name
+                    ?.split(" ")
+                    .slice(0, 2)
+                    .join(" ")}`
                 : "Menu"}
             </Text>
           </Dropdown.Item>
