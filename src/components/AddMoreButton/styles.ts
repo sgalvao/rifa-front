@@ -8,45 +8,38 @@ export const AddMoreCard = styled.div<Props>`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   font-size: 1.8rem;
   padding: 2rem;
   text-align: center;
   font-family: "Poppins", sans-serif;
   height: 8rem;
-  border: 2px solid #1b05cf;
-  border-radius: 1rem;
   color: #1b05cf;
   font-weight: bold;
-  background-color: rgba(223, 211, 227, 0.5);
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 1rem;
 
   cursor: pointer;
 
   ${({ popular }) =>
     popular &&
     css`
-      border: 2px solid #1b05cf;
       border-radius: 1rem;
-      color: #fff;
-      background: #1b05cf;
+      color: #1b05cf;
       font-weight: bold;
+      border: 1px solid #1b05cf;
     `}
-`;
-
-export const Container = styled.div`
-  display: flex;
-  position: relative;
-  align-items: center;
-  justify-content: center;
 `;
 
 export const PopularCard = styled.div`
   padding: 0 1rem;
   position: absolute;
   top: -1rem;
-  border: 1px solid #1b05cf;
   border-radius: 0.6rem;
   font-family: "Poppins", sans-serif;
   font-size: 1.4rem;
   color: rgba(243, 244, 237, 1);
-  background: rgba(113, 99, 231);
+  border: 1px solid #1b05cf;
+  background-color: #1b05cf;
 `;

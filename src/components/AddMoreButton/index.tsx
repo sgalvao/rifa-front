@@ -8,11 +8,9 @@ interface Props {
 
 export const AddMoreButton = ({ value, popular, onClick }: Props) => {
   return (
-    <S.Container>
-      {popular && <S.PopularCard>Recomendado </S.PopularCard>}
-      <S.AddMoreCard onClick={onClick} popular={popular}>
-        + {value} Selecionar
-      </S.AddMoreCard>
-    </S.Container>
+    <S.AddMoreCard onClick={onClick} popular={popular}>
+      {popular && <S.PopularCard>Recomendado</S.PopularCard>}+ {value}{" "}
+      Selecionar
+    </S.AddMoreCard>
   );
 };

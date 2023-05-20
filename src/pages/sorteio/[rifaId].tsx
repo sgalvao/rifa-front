@@ -7,6 +7,7 @@ import Head from "next/head";
 import { Base } from "@/templates/Base";
 import { LOAD_RANKING } from "@/GraphQL/Queries/ranking";
 
+
 type RifaProps = {
   loadRifa: LoadRifa;
   loadRanking: LoadRanking;
@@ -14,12 +15,14 @@ type RifaProps = {
 
 export default function Rifa(data: RifaProps) {
   return (
-    <Base noFooter>
-      <Head>
-        <title>{data.loadRifa.name}</title>
-      </Head>
-      <GiveawayPage {...data} />
-    </Base>
+    <>
+      <Base>
+        <Head>
+          <title>{data.loadRifa.name}</title>
+        </Head>
+        <GiveawayPage {...data} />
+      </Base>
+    </>
   );
 }
 
