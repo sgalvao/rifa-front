@@ -76,7 +76,7 @@ export default function App({
                   strategy="afterInteractive"
                   dangerouslySetInnerHTML={{
                     __html: `
-                    setTimeout(() => {
+                   
                       !function(f,b,e,v,n,t,s)
                       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
                         n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -87,7 +87,7 @@ export default function App({
                         'https://connect.facebook.net/en_US/fbevents.js');
                         fbq('init', ${fbq.FB_PIXEL_ID});
                         fbq('track', 'PageView');
-                      },3000)
+                   
              
                 `,
                   }}
