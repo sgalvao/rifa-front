@@ -36,6 +36,8 @@ export default function App({
     },
   });
 
+  
+
   useEffect(() => {
     fbq.pageview();
 

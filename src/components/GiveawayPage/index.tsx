@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { FaqCard } from "../FaqCard";
 import { Ranking } from "@/components/Ranking";
 import { useEffect, useState } from "react";
-import { Badge, Card, Image, Row, Text } from "@nextui-org/react";
+import { Badge, Card, Row, Text } from "@nextui-org/react";
 import { Flex } from "@/styles/flex";
 
 type Props = {
@@ -56,38 +56,12 @@ export const GiveawayPage = (data: Props) => {
                 currency: "BRL",
               })}
             </Badge>
+            <Badge size={"xl"} color={"warning"}>
+              Data do sorteio: 17/06/23
+            </Badge>
           </Row>
         </Card.Footer>
       </Card>
-
-      {/* <Flex justify={"between"} align={"center"} css={{ padding: "1.6rem" }}>
-        <Text
-          h2
-          css={{ fontFamily: "Poppins, sans-serif", fontSize: "1.6rem" }}
-        >
-          {data.loadRifa.name}
-        </Text>
-        <Flex direction={"column"}>
-          <Text
-            h2
-            css={{
-              fontSize: "1.6rem",
-              fontFamily: "Poppins, sans-serif",
-              fontWeight: "800",
-              color: "white",
-              backgroundColor: " #1b05cf",
-              padding: "0.3rem 1rem",
-              borderRadius: "1rem",
-            }}
-          >
-            {" "}
-            {data.loadRifa.price.toLocaleString("pt-BR", {
-              style: "currency",
-              currency: "BRL",
-            })}
-          </Text>
-        </Flex>
-      </Flex> */}
 
       {data.loadRifa.status === "OPEN" ? (
         <>

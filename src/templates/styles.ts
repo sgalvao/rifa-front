@@ -12,6 +12,7 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   margin: 1rem 0 5rem 0;
+  min-height: 100vh;
 `;
 
 export const Footer = styled.footer`
