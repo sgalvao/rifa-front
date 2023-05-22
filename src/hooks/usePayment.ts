@@ -14,7 +14,7 @@ type RifaType = {
 };
 
 export const usePayment = ({ id, numberPrice }: RifaType) => {
-  const [value, setValue] = useState(10);
+  const [value, setValue] = useState(15);
   const [price, setPrice] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
