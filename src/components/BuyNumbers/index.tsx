@@ -23,7 +23,7 @@ export const BuyNumbers = ({ id, numberPrice }: RifaType) => {
   } = usePayment({ id, numberPrice });
   return (
     <S.Container id="buy-numbers">
-      <Grid.Container gap={8}>
+      <Grid.Container gap={6}>
         <Grid xs={6}>
           <AddMoreButton onClick={() => handleAddMore(5)} value={5} />
         </Grid>
