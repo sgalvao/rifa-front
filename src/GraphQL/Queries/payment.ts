@@ -29,3 +29,9 @@ export const LOAD_PURCHASED_NUMBERS = gql`
     }
   }
 `;
+
+export const VERIFY_STATUS = gql`
+  query VerifyStatus($paymentId: String) {
+    verifyStatus(paymentId: $paymentId)
+  }
+`;
