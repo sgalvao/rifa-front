@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import * as S from "./styles";
 import pixLogo from "../../../public/img/pix-logo.svg";
-import { FaReceipt, FaTelegramPlane } from "react-icons/fa";
+import { FaReceipt } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { PixModal } from "../PixModal";
 import { format } from "date-fns";
@@ -11,7 +11,7 @@ import { BsWhatsapp } from "react-icons/bs";
 import { useQuery } from "@apollo/client";
 import { VERIFY_STATUS } from "@/GraphQL/Queries/payment";
 import { useRouter } from "next/router";
-import { Button, Text } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 
 export type PaymentProps = {
   loadPaymentById: {
@@ -53,7 +53,7 @@ const Checkout = (data: PaymentProps) => {
 
   useEffect(() => {
     if (polling && !isExpired) {
-      startPolling(1000);
+      startPolling(15000);
     } else {
       stopPolling();
     }

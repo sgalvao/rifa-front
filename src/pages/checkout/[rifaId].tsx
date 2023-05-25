@@ -1,4 +1,3 @@
-import protectedRoutes from "@/utils/protectedRoutes";
 import { GetServerSidePropsContext } from "next/types";
 import CheckoutPage, { PaymentProps } from "@/components/Checkout/index";
 import { getSession } from "next-auth/react";
