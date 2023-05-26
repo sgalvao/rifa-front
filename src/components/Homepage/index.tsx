@@ -2,7 +2,6 @@ import { HighlightCard } from "@/components/HighlightCard";
 import * as S from "./styles";
 import { ImFire } from "react-icons/im";
 import { GiveAwayCard } from "@/components/GiveawayCard";
-import { Base } from "@/templates/Base";
 import { LoadRifas, MenuType } from "@/types/api";
 import { useRouter } from "next/router";
 import { MenuContext } from "@/context/MenuProvider";
@@ -18,7 +17,7 @@ const Homepage = ({ loadRifas }: LoadRifas) => {
   });
 
   return (
-    <Base>
+    <>
       <S.Divider />
       <S.Content>
         <S.Title>
@@ -35,7 +34,7 @@ const Homepage = ({ loadRifas }: LoadRifas) => {
             rifaList.map((item) => <GiveAwayCard {...item} key={item.id} />)}
         </S.Wrapper>
       </S.Content>
-    </Base>
+    </>
   );
 };
 

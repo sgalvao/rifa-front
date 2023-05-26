@@ -4,15 +4,21 @@ import { LoadRifas } from "@/types/api";
 import { initializeApollo } from "@/utils/apollo";
 import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
+import dynamic from "next/dynamic";
+import PageLoader from "@/components/PageLoader";
+const Base = dynamic(() => import("@/templates/Base"), {
+  ssr: false,
+  loading: () => <PageLoader />,
+}) ;
 
 export default function Home(data: LoadRifas) {
   return (
-    <>
+    <Base>
       <Head>
         <title>Maquina de Prêmios</title>
       </Head>
       <Homepage {...data} />
-    </>
+    </Base>
   );
 }
 

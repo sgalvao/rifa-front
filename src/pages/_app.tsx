@@ -15,6 +15,7 @@ import MenuProvider from "@/context/MenuProvider";
 import { NextUIProvider, createTheme } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { Partytown } from "@builder.io/partytown/react";
+import NextNProgress from "nextjs-progressbar";
 
 export default function App({
   Component,
@@ -52,12 +53,16 @@ export default function App({
 
   return (
     <>
+      <NextNProgress
+        color="#38217F"
+        options={{ easing: "ease", showSpinner: false }}
+      />
       <Head>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
-        <Partytown debug={true} forward={["dataLayer.push"]} />
+        <Partytown debug={true} forward={["dataLayer.push", "fbq"]} />
       </Head>
       <SessionProvider session={pageProps.session}>
         <CheckoutProvider>
@@ -109,7 +114,7 @@ export default function App({
                   pauseOnFocusLoss
                   draggable
                   pauseOnHover
-                  theme="dark"
+                  theme="light"
                 />
               </NextThemesProvider>
             </ApolloProvider>
