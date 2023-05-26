@@ -1,6 +1,11 @@
 import { WinnersPage } from "@/components/WinnersPage";
 import { LOAD_WINNERS } from "@/GraphQL/Queries/winners";
-import { Base } from "@/templates/Base";
+import dynamic from "next/dynamic";
+import PageLoader from "@/components/PageLoader";
+const Base = dynamic(() => import("@/templates/Base"), {
+  ssr: false,
+  loading: () => <PageLoader />,
+}) ;
 import { WinnersProps } from "@/types/api";
 import { initializeApollo } from "@/utils/apollo";
 import { GetServerSidePropsContext } from "next";

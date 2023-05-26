@@ -1,4 +1,6 @@
+import Image from "next/image";
 import styled from "styled-components";
+import media from "styled-media-query";
 
 export const FinishedContainer = styled.div`
   display: flex;
@@ -69,3 +71,18 @@ export const Status = styled.div<any>`
     }
   }
 `;
+
+export const CardImage = styled(Image)`
+  border-radius: 1.2rem;
+  max-width: 100%;
+`
+
+export const CardImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 580px;
+
+  ${media.lessThan("small")`
+    height: 300px;
+  `}
+`

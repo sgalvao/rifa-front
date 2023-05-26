@@ -8,6 +8,7 @@ import { Ranking } from "@/components/Ranking";
 import { useEffect, useState } from "react";
 import { Badge, Card, Row, Text } from "@nextui-org/react";
 import { Flex } from "@/styles/flex";
+import Image from "next/image";
 
 type Props = {
   loadRifa: LoadRifa;
@@ -38,15 +39,9 @@ export const GiveawayPage = (data: Props) => {
   return (
     <Flex direction={"column"}>
       <Card>
-        <Card.Body>
-          <Card.Image
-            src={data.loadRifa.image}
-            objectFit="cover"
-            width="100%"
-            alt={data.loadRifa.name}
-            css={{ borderRadius: "1.2rem" }}
-          />
-        </Card.Body>
+        <S.CardImageContainer>
+          <Image src={data.loadRifa.image} quality={60} priority={true} loading="eager" placeholder="blur" blurDataURL={data.loadRifa.image} objectFit="cover" objectPosition="center" layout="fill" alt={data.loadRifa.name} />
+        </S.CardImageContainer>
         <Card.Footer css={{ justifyItems: "center" }}>
           <Row wrap="wrap" justify="space-between" align="center">
             <Text h2>{data.loadRifa.name}</Text>
@@ -130,3 +125,5 @@ export const GiveawayPage = (data: Props) => {
     </Flex>
   );
 };
+
+export default GiveawayPage
