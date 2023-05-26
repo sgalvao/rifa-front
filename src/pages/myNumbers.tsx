@@ -1,6 +1,11 @@
 import { MyNumber, PurchasedListProps } from "@/components/MyNumber";
 import { LOAD_PURCHASED_NUMBERS } from "@/GraphQL/Queries/payment";
-import { Base } from "@/templates/Base";
+import dynamic from "next/dynamic";
+import PageLoader from "@/components/PageLoader";
+const Base = dynamic(() => import("@/templates/Base"), {
+  ssr: false,
+  loading: () => <PageLoader />,
+}) ;
 import { initializeApollo } from "@/utils/apollo";
 import { GetServerSidePropsContext } from "next";
 import { getSession } from "next-auth/react";

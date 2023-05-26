@@ -14,6 +14,7 @@ import Head from "next/head";
 import MenuProvider from "@/context/MenuProvider";
 import { NextUIProvider, createTheme } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
+import NextNProgress from 'nextjs-progressbar';
 
 export default function App({
   Component,
@@ -47,10 +48,11 @@ export default function App({
     return () => {
       router.events.off("routeChangeComplete", handleRouteChange);
     };
-  }, [router.events]);
+  }, [router.events])
 
   return (
     <>
+      <NextNProgress color="#38217F" options={{easing: 'ease', showSpinner: false}} />
       <Head>
         <meta
           name="viewport"
@@ -106,7 +108,7 @@ export default function App({
                   pauseOnFocusLoss
                   draggable
                   pauseOnHover
-                  theme="dark"
+                  theme="light"
                 />
               </NextThemesProvider>
             </ApolloProvider>
