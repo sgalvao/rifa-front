@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run partytown && next build",
+    "partytown": "partytown copylib public/~partytown",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@apollo/client": "^3.7.9",
+    "@builder.io/partytown": "^0.8.0",
     "@fontsource/roboto": "^4.5.8",
     "@next/bundle-analyzer": "^13.4.3",
     "@next/font": "13.1.6",

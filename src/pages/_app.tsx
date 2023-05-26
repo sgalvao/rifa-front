@@ -14,6 +14,7 @@ import Head from "next/head";
 import MenuProvider from "@/context/MenuProvider";
 import { NextUIProvider, createTheme } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { Partytown } from "@builder.io/partytown/react";
 
 export default function App({
   Component,
@@ -56,6 +57,7 @@ export default function App({
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
+        <Partytown debug={true} forward={["dataLayer.push"]} />
       </Head>
       <SessionProvider session={pageProps.session}>
         <CheckoutProvider>
@@ -72,6 +74,7 @@ export default function App({
                 <GlobalStyle />
 
                 <Script
+                  type="text/partytown"
                   id="fb-pixel"
                   strategy="afterInteractive"
                   dangerouslySetInnerHTML={{
