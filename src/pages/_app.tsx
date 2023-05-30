@@ -25,10 +25,13 @@ export default function App({
   const client = useApollo(pageProps, session);
   const router = useRouter();
   useEffect(() => {
-    socket.emit("userConnect");
+    socket.on("connect", () => {
+      socket.emit("userConnect");
+    });
 
     return () => {
       socket.disconnect();
+      socket.emit("disconnect");
     };
   }, []);
 
