@@ -15,13 +15,20 @@ import MenuProvider from "@/context/MenuProvider";
 import { NextUIProvider, createTheme } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import NextNProgress from "nextjs-progressbar";
+import io from "socket.io-client";
 
+const socket = io(process.env.NEXT_PUBLIC_SOCKET ?? "http://localhost:9000");
 export default function App({
   Component,
   pageProps: { session, ...pageProps },
 }: AppProps | any) {
   const client = useApollo(pageProps, session);
   const router = useRouter();
+  useEffect(() => {
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
 
   const lightTheme = createTheme({
     type: "light",

@@ -9,7 +9,7 @@ import PageLoader from "@/components/PageLoader";
 const Base = dynamic(() => import("@/templates/Base"), {
   ssr: false,
   loading: () => <PageLoader />,
-}) ;
+});
 import { LOAD_RANKING } from "@/GraphQL/Queries/ranking";
 
 type RifaProps = {
@@ -30,10 +30,10 @@ export default function Rifa(data: RifaProps) {
   );
 }
 
-export async function getStaticPaths() { 
+export async function getStaticPaths() {
   return {
     paths: [],
-    fallback: 'blocking',
+    fallback: "blocking",
   };
 }
 
@@ -61,11 +61,11 @@ export async function getStaticProps(context: GetServerSidePropsContext) {
 
     return {
       props: { loadRifa, loadRanking },
-      revalidate: 120
+      revalidate: 120,
     };
   } catch (error) {
     return {
       notFound: true,
-    }
+    };
   }
 }
