@@ -32,7 +32,7 @@ export default function App({
     addUserToCount();
 
     return () => {
-      socket.off("addUserToCount");
+      socket.close();
     };
   }, []);
 
