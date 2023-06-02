@@ -13,7 +13,6 @@ export const IncrementInput = ({
   value,
   handleDecrement,
   handleIncrement,
-  setValue,
 }: Props) => {
   return (
     <S.Container>

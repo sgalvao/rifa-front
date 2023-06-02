@@ -43,7 +43,7 @@ export const usePayment = ({ id, numberPrice }: RifaType) => {
   };
 
   const handleAddMore = (valueAdded: number) => {
-    if (value + valueAdded >= 1000) {
+    if (value + valueAdded >= 2500) {
       return setValue(1000);
     }
 
