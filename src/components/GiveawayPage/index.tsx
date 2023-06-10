@@ -9,6 +9,10 @@ import { useEffect, useState } from "react";
 import { Badge, Card, Row, Text } from "@nextui-org/react";
 import { Flex } from "@/styles/flex";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+const UpSellModal = dynamic(() => import("@/components/UpSellModal"), {
+  ssr: false,
+});
 
 type Props = {
   loadRifa: LoadRifa;
@@ -40,7 +44,18 @@ export const GiveawayPage = (data: Props) => {
     <Flex direction={"column"}>
       <Card>
         <S.CardImageContainer>
-          <Image src={data.loadRifa.image} quality={60} priority={true} loading="eager" placeholder="blur" blurDataURL={data.loadRifa.image} objectFit="cover" objectPosition="center" layout="fill" alt={data.loadRifa.name} />
+          <Image
+            src={data.loadRifa.image}
+            quality={60}
+            priority={true}
+            loading="eager"
+            placeholder="blur"
+            blurDataURL={data.loadRifa.image}
+            objectFit="cover"
+            objectPosition="center"
+            layout="fill"
+            alt={data.loadRifa.name}
+          />
         </S.CardImageContainer>
         <Card.Footer css={{ justifyItems: "center" }}>
           <Row wrap="wrap" justify="space-between" align="center">
@@ -88,9 +103,9 @@ export const GiveawayPage = (data: Props) => {
             Após a <strong>realização do pagamento</strong> verifique seus
             números na aba <strong>Meus números</strong> no menu do site!
           </S.Info>
-          {data.loadRanking.length && (
+          {data.loadRanking.length ? (
             <Ranking ranking={data.loadRanking} prize={{ ...prizes }} />
-          )}
+          ) : null}
           <Text
             h2
             css={{
@@ -122,8 +137,9 @@ export const GiveawayPage = (data: Props) => {
           )}
         </>
       )}
+      {/* <UpSellModal isOpen={false} /> */}
     </Flex>
   );
 };
 
-export default GiveawayPage
+export default GiveawayPage;

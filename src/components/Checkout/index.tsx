@@ -6,7 +6,6 @@ import { FaReceipt } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { PixModal } from "../PixModal";
 import { format } from "date-fns";
-import Countdown from "../Countdown";
 import { BsWhatsapp } from "react-icons/bs";
 import { useQuery } from "@apollo/client";
 import { VERIFY_STATUS } from "@/GraphQL/Queries/payment";
@@ -37,7 +36,6 @@ const Checkout = (data: PaymentProps) => {
   const [polling, setPolling] = useState(true);
   const {
     data: res,
-    error,
     startPolling,
     stopPolling,
   } = useQuery(VERIFY_STATUS, {
@@ -59,7 +57,6 @@ const Checkout = (data: PaymentProps) => {
     }
 
     if (res?.verifyStatus) {
-      console.log("entrei");
       setPolling(false);
     }
   }, [polling, res]);
@@ -94,10 +91,6 @@ const Checkout = (data: PaymentProps) => {
         <S.StatusCard>
           <FaReceipt size={28} color="#1b05cf" />
           Aguardando Pagamento...
-          <Countdown
-            startTime={new Date(data.loadPaymentById.createdAt)}
-            handleEnd={handleExpire}
-          />
         </S.StatusCard>
       ) : (
         <S.StatusCard isApproved={res.verifyStatus}>
@@ -161,7 +154,7 @@ const Checkout = (data: PaymentProps) => {
             .replace(" ", "")}
         </S.TotalValue>
       </S.Wrapper>
-      {!isExpired && !res?.verifyStatus && (
+      {!res?.verifyStatus && (
         <S.PixContainer onClick={handleOpen}>
           <S.PixButton>Clique aqui para pagar com</S.PixButton>
           <S.PixCard url={pixLogo}></S.PixCard>
