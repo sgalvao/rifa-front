@@ -61,10 +61,6 @@ const Checkout = (data: PaymentProps) => {
     }
   }, [polling, res]);
 
-  const handleExpire = () => {
-    setIsExpired(true);
-  };
-
   return (
     <S.Container>
       <S.PaymentId>COMPRA #{data.loadPaymentById.transactionId}</S.PaymentId>

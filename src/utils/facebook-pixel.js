@@ -4,6 +4,10 @@ export const pageview = () => {
   window.fbq("track", "PageView");
 };
 
+export const viewContent = () => {
+  window.fbq("track", "ViewContent");
+};
+
 export const event = (name, options = {}) => {
   window.fbq("track", name, options);
 };

@@ -52,9 +52,11 @@ export default function App({
 
   useEffect(() => {
     fbq.pageview();
+    fbq.viewContent();
 
     const handleRouteChange = () => {
       fbq.pageview();
+      fbq.viewContent();
     };
 
     router.events.on("routeChangeComplete", handleRouteChange);
