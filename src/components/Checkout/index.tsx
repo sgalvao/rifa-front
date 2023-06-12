@@ -70,7 +70,7 @@ const Checkout = (data: PaymentProps) => {
 
       <S.Info>
         O código ficará <strong>indisponível</strong> para pagamento{" "}
-        <strong>após 10 minutos</strong> e os números selecionados voltaram a
+        <strong>após 10 minutos</strong> e os números selecionados voltarão a
         ficar disponíveis para <strong>compra</strong>!
       </S.Info>
       <S.Wrapper>

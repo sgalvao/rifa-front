@@ -6,7 +6,7 @@ import { LoadRanking, LoadRifa } from "@/types/api";
 import Head from "next/head";
 import { Base } from "@/templates/Base";
 import { LOAD_RANKING } from "@/GraphQL/Queries/ranking";
-
+import dynamic from "next/dynamic";
 
 type RifaProps = {
   loadRifa: LoadRifa;
