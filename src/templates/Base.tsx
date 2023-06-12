@@ -1,7 +1,8 @@
 import Header from "@/components/Header";
 import * as S from "./styles";
 import { Flex } from "@/styles/flex";
-import { Link, Image, Text } from "@nextui-org/react";
+import { Text } from "@nextui-org/react";
+import Image from "next/image";
 
 type Props = {
   children: React.ReactNode;
@@ -19,12 +20,16 @@ export const Base = ({ children }: Props) => {
             height={110}
             src={"/img/mercadoPago.png"}
             alt="Default Image"
+            objectFit="scale-down"
+            quality={60}
           />
           <Image
             width={110}
             height={110}
             src={"/img/pix-logo.svg"}
             alt="Default Image"
+            objectFit="scale-down"
+            quality={60}
           />
         </Flex>
         <Flex direction={"column"} align={"center"}>
@@ -39,3 +44,5 @@ export const Base = ({ children }: Props) => {
     </S.Container>
   );
 };
+
+export default Base

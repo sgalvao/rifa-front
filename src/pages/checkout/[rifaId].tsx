@@ -1,8 +1,12 @@
-import protectedRoutes from "@/utils/protectedRoutes";
 import { GetServerSidePropsContext } from "next/types";
 import CheckoutPage, { PaymentProps } from "@/components/Checkout/index";
 import { getSession } from "next-auth/react";
-import { Base } from "@/templates/Base";
+import dynamic from "next/dynamic";
+import PageLoader from "@/components/PageLoader";
+const Base = dynamic(() => import("@/templates/Base"), {
+  ssr: false,
+  loading: () => <PageLoader />,
+}) ;
 import { initializeApollo } from "@/utils/apollo";
 import { LOAD_PAYMENT_BY_ID } from "@/GraphQL/Queries/payment";
 import { LOAD_RIFA } from "@/GraphQL/Queries/rifa";

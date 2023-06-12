@@ -2,9 +2,10 @@ import * as S from "./styles";
 import { useRouter } from "next/router";
 
 import { signOut, useSession } from "next-auth/react";
-import { Avatar, Dropdown, Text, Image, Grid, Spacer } from "@nextui-org/react";
+import { Avatar, Dropdown, Text} from "@nextui-org/react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Flex } from "@/styles/flex";
+import Image from 'next/image'
 
 const Header = () => {
   const router = useRouter();
@@ -26,6 +27,7 @@ const Header = () => {
           alt="Logo maquina de prêmios"
           width={60}
           height={60}
+          quality={60}
         />
         <Flex direction={"column"}>
           <Text

@@ -2,8 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["upcdn.io"],
+    domains: ["upcdn.io", "iili.io"],
   },
+  swcMinify: true,
 };
+
 
 module.exports = nextConfig;

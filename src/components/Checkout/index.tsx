@@ -1,12 +1,16 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/alt-text */
 import * as S from "./styles";
 import pixLogo from "../../../public/img/pix-logo.svg";
-import { FaReceipt, FaTelegramPlane } from "react-icons/fa";
-import { useState } from "react";
+import { FaReceipt } from "react-icons/fa";
+import { useEffect, useState } from "react";
 import { PixModal } from "../PixModal";
 import { format } from "date-fns";
-import Countdown from "../Countdown";
 import { BsWhatsapp } from "react-icons/bs";
+import { useQuery } from "@apollo/client";
+import { VERIFY_STATUS } from "@/GraphQL/Queries/payment";
+import { useRouter } from "next/router";
+import { Button } from "@nextui-org/react";
 
 export type PaymentProps = {
   loadPaymentById: {
@@ -28,14 +32,34 @@ export type PaymentProps = {
 const Checkout = (data: PaymentProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isExpired, setIsExpired] = useState(false);
+  const router = useRouter();
+  const [polling, setPolling] = useState(true);
+  const {
+    data: res,
+    startPolling,
+    stopPolling,
+  } = useQuery(VERIFY_STATUS, {
+    fetchPolicy: "cache-and-network",
+    variables: {
+      paymentId: router.query.paymentId,
+    },
+  });
 
   const handleOpen = () => {
     return setIsOpen(true);
   };
 
-  const handleExpire = () => {
-    setIsExpired(true);
-  };
+  useEffect(() => {
+    if (polling && !isExpired) {
+      startPolling(15000);
+    } else {
+      stopPolling();
+    }
+
+    if (res?.verifyStatus) {
+      setPolling(false);
+    }
+  }, [polling, res]);
 
   return (
     <S.Container>
@@ -59,20 +83,38 @@ const Checkout = (data: PaymentProps) => {
         </strong>
         !
       </S.Info>
-      <S.StatusCard>
-        <FaReceipt size={28} color="#1b05cf" />
-        Aguardando Pagamento...
-        <Countdown
-          startTime={new Date(data.loadPaymentById.createdAt)}
-          handleEnd={handleExpire}
-        />
-      </S.StatusCard>
+      {!res?.verifyStatus ? (
+        <S.StatusCard>
+          <FaReceipt size={28} color="#1b05cf" />
+          Aguardando Pagamento...
+        </S.StatusCard>
+      ) : (
+        <S.StatusCard isApproved={res.verifyStatus}>
+          <FaReceipt size={28} color="#08cf05" />
+          Pagamento Aprovado
+          <Button
+            size={"xl"}
+            onClick={() => router.push("/myNumbers")}
+            color={"success"}
+            bordered
+            css={{ fontSize: "1.4rem" }}
+          >
+            Conferir seus números
+          </Button>
+        </S.StatusCard>
+      )}
 
-      <S.Info>
-        O código ficará <strong>indisponível</strong> para pagamento{" "}
-        <strong>após 10 minutos</strong> e os números selecionados voltarão a
-        ficar disponíveis para <strong>compra</strong>!
-      </S.Info>
+      {!res?.verifyStatus ? (
+        <S.Info>
+          O código ficará <strong>indisponível</strong> para pagamento{" "}
+          <strong>após 10 minutos</strong> e os números selecionados voltarão a
+          ficar disponíveis para <strong>compra</strong>!
+        </S.Info>
+      ) : (
+        <S.Info>
+          Agradecemos sua participação, e desejamos uma boa sorte! 🍀🤞
+        </S.Info>
+      )}
       <S.Wrapper>
         <S.Title>{data.name}</S.Title>
         <S.Date>
@@ -108,7 +150,7 @@ const Checkout = (data: PaymentProps) => {
             .replace(" ", "")}
         </S.TotalValue>
       </S.Wrapper>
-      {!isExpired && (
+      {!res?.verifyStatus && (
         <S.PixContainer onClick={handleOpen}>
           <S.PixButton>Clique aqui para pagar com</S.PixButton>
           <S.PixCard url={pixLogo}></S.PixCard>

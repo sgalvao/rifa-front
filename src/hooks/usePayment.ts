@@ -14,7 +14,7 @@ type RifaType = {
 };
 
 export const usePayment = ({ id, numberPrice }: RifaType) => {
-  const [value, setValue] = useState(10);
+  const [value, setValue] = useState(15);
   const [price, setPrice] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -43,7 +43,7 @@ export const usePayment = ({ id, numberPrice }: RifaType) => {
   };
 
   const handleAddMore = (valueAdded: number) => {
-    if (value + valueAdded >= 1000) {
+    if (value + valueAdded >= 2500) {
       return setValue(1000);
     }
 

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 type Props = {
-  url: string;
+  url?: string;
+  isApproved?: boolean;
 };
 
 export const Container = styled.div`
@@ -21,12 +22,12 @@ export const PaymentId = styled.h1`
   margin: 2rem 0;
 `;
 
-export const StatusCard = styled.div`
+export const StatusCard = styled.div<Props>`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px dashed #1b05cf;
+  border: 1px dashed ${({ isApproved }) => (isApproved ? "green" : "#1b05cf")};
   padding: 1rem;
   width: 100%;
   color: #999999;

@@ -13,15 +13,14 @@ export const IncrementInput = ({
   value,
   handleDecrement,
   handleIncrement,
-  setValue,
 }: Props) => {
   return (
     <S.Container>
-      <S.Button onClick={handleDecrement} disabled={value === 10}>
+      <S.Button onClick={handleDecrement} disabled={value === 15}>
         <SlMinus size={24} />
       </S.Button>
       <S.Input>{value}</S.Input>
-      <S.Button onClick={handleIncrement} disabled={value === 1000}>
+      <S.Button onClick={handleIncrement} disabled={value === 2500}>
         <BsPlusCircle size={24} />
       </S.Button>
     </S.Container>

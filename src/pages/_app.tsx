@@ -14,6 +14,9 @@ import Head from "next/head";
 import MenuProvider from "@/context/MenuProvider";
 import { NextUIProvider, createTheme } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
+import NextNProgress from "nextjs-progressbar";
+import io from "socket.io-client";
+const socket = io(process.env.NEXT_PUBLIC_SOCKET ?? "http://localhost:9000");
 
 export default function App({
   Component,
@@ -21,6 +24,17 @@ export default function App({
 }: AppProps | any) {
   const client = useApollo(pageProps, session);
   const router = useRouter();
+  useEffect(() => {
+    const addUserToCount = () => {
+      socket.emit("addUserToCount");
+    };
+
+    addUserToCount();
+
+    return () => {
+      socket.close();
+    };
+  }, []);
 
   const lightTheme = createTheme({
     type: "light",
@@ -38,9 +52,11 @@ export default function App({
 
   useEffect(() => {
     fbq.pageview();
+    fbq.viewContent();
 
     const handleRouteChange = () => {
       fbq.pageview();
+      fbq.viewContent();
     };
 
     router.events.on("routeChangeComplete", handleRouteChange);
@@ -51,6 +67,10 @@ export default function App({
 
   return (
     <>
+      <NextNProgress
+        color="#38217F"
+        options={{ easing: "ease", showSpinner: false }}
+      />
       <Head>
         <meta
           name="viewport"
@@ -106,7 +126,7 @@ export default function App({
                   pauseOnFocusLoss
                   draggable
                   pauseOnHover
-                  theme="dark"
+                  theme="light"
                 />
               </NextThemesProvider>
             </ApolloProvider>
